@@ -1,7 +1,8 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Index from './components'
+import Index from './routes'
 import Home from './routes/Home'
+import './assets/styles/reset.css'
 
 function App () {
   return (

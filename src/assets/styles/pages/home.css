@@ -1,0 +1,12 @@
+body {
+  background-color: var(--background-color);
+  color: #ccc6e1;
+}
+
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}

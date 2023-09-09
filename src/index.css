@@ -1,3 +1,13 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+
+html {
+  --primary-color: #654eb0;
+  --light-primary-color: rgba(101, 78, 176, 46);
+  --light-color: #ccc6e1;
+  --secondary-color: #101935;
+  --strong-color: #564787;
+  --background-color: #202124;
+  --border-color: #ccc6e1;
+}

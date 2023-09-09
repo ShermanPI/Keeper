@@ -9,10 +9,37 @@ html {
 }
 
 img,
-video {
-  max-width: 100%;
+video,
+svg {
+  width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: calc(1rem + 1.5vw);
+}
+
+@media (min-width: 1024px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: calc(1rem + 0.5vw);
+  }
+}
+
+p,
+b {
+  font-size: calc(1rem + 0.5vw);
+  line-height: 1.4;
+}
+/* 
 h1 {
   font-size: 5.9vw;
 }
@@ -20,5 +47,5 @@ h2 {
   font-size: 3vh;
 }
 p {
-  font-size: 2vmin;
-}
+  font-size: 1rem;
+} */
