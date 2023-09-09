@@ -1,7 +1,11 @@
+/* mansory layout */
 .notes-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  columns: 2;
+  gap: 2rem;
+}
+
+.notes-container > div {
+  break-inside: avoid;
 }
 
 .section-title {

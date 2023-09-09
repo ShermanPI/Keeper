@@ -6,6 +6,7 @@
   padding: 0.6rem 1rem 0.6rem 1.6rem;
   margin-inline: auto;
   margin-block: 1rem;
+  width: 100%;
   border-radius: 28px;
   gap: 1rem;
 }
@@ -29,6 +30,10 @@
 .profile-picture-container {
   color: #fff;
   background-color: var(--primary-color);
+}
+
+.form-filter-container {
+  width: 100%;
 }
 
 .form-filter-container input {

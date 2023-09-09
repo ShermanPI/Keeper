@@ -1,0 +1,5 @@
+.menu-category h2 {
+  font-weight: 600;
+  color: red;
+  font-size: calc(1.2rem + 1.5vw);
+}
