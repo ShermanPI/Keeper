@@ -1,0 +1,131 @@
+
+.title{
+    font-size: 1.6rem;
+}
+.buttonPrimary{
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttonPrimary:hover{
+    background-color: #7f64da;
+}
+
+.buttonPrimaryLigth{
+    background-color: var(--light-color);
+    color: #000;
+    cursor: pointer;
+
+}
+
+.Form__submit--div{
+    display: flex;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.Form__submit--h1{
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+.Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 0;
+    margin-top: 1rem;
+
+}
+
+.Form__submit--button{
+    width: 90%;
+    margin-top: 3rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 2.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.Form__submit--google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.Form__remember{
+    width: 90%;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.Form__remember--label{
+    margin-left: .5rem;
+    font-size: 1.4rem;
+}
+
+.Form__session{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.Form__session--input{
+    width: 90%;
+    padding: 1rem;
+    border: none;
+    border-bottom: solid .1rem var( --secondary-color);
+    outline: none;
+    margin-top: 4rem;
+}
+
+.Form__session--input:focus{
+    border-bottom: solid .1rem rgb(10, 104, 225);
+}
+
+.Form__submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Form__signUp{
+    width: 90%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    position: absolute;
+    bottom: 7rem;
+    text-align: center;
+}
+
+.Form__signUp--h1{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+.Form__signUp--span{
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+@media screen and (max-width: 765px) {
+
+    
+
+
+}
+
+
+/* Form Sign In */
+
