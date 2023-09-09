@@ -1,13 +1,13 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Index from './components'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App () {
   return (
     <>
-       <h1>
-        Keeper
-       </h1>
+      <Routes>
+        <Route path='/' element={<Index />} />
+      </Routes>
     </>
   )
 }
