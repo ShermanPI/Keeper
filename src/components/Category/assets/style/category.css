@@ -1,5 +1,28 @@
+.menu-category {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1.5rem;
+}
+
+.categories-list li {
+  list-style: none;
+}
+
 .menu-category h2 {
   font-weight: 600;
-  color: red;
-  font-size: calc(1.2rem + 1.5vw);
+  font-size: calc(1rem + 1.5vw);
+}
+
+.menu-category.selected {
+  border-radius: 3rem;
+  background-color: var(--light-primary-color);
+}
+
+.category-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(2rem + 1.5vw);
 }

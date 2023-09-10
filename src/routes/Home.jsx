@@ -3,8 +3,12 @@ import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
 import MenuCategory from '../components/Category/MenuCategory'
+import { Inventory, Ligthbulb, PaperBin, Tags } from '../components/Category/assets/images/Icons'
+import { useState } from 'react'
 
 export default function Home () {
+  const [selectedLabel, setSelectedLabel] = useState('category - 1')
+
   return (
     <div className='home-container'>
       <Header />
@@ -19,11 +23,12 @@ export default function Home () {
               </div>
               <h1>Keeper</h1>
             </div>
-
-            <MenuCategory>
-              Category One
-            </MenuCategory>
-
+            <ul className='categories-list'>
+              <li><MenuCategory id='category-1' labelHandler={setSelectedLabel} selectedLabel={selectedLabel} icon={<Ligthbulb />}> Notes </MenuCategory></li>
+              <li><MenuCategory id='category-2' labelHandler={setSelectedLabel} selectedLabel={selectedLabel} icon={<Tags />}> Edit Labels </MenuCategory></li>
+              <li><MenuCategory id='category-3' labelHandler={setSelectedLabel} selectedLabel={selectedLabel} icon={<Inventory />}> File </MenuCategory></li>
+              <li><MenuCategory id='category-4' labelHandler={setSelectedLabel} selectedLabel={selectedLabel} icon={<PaperBin />}> Paper Bin </MenuCategory></li>
+            </ul>
           </section>
         </section>
 
