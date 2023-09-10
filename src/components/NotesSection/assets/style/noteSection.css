@@ -1,0 +1,13 @@
+/* mansory layout */
+.notes-container {
+  columns: 2;
+  gap: 2rem;
+}
+
+.notes-container > div {
+  break-inside: avoid;
+}
+
+.section-title {
+  line-height: 4;
+}

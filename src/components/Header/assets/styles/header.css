@@ -1,0 +1,53 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ccc6e159;
+  padding: 0.6rem 1rem 0.6rem 1.6rem;
+  margin-inline: auto;
+  margin-block: 1rem;
+  width: 100%;
+  border-radius: 28px;
+  gap: 1rem;
+}
+
+.header-container button {
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.4rem;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.profile-picture-container {
+  color: #fff;
+  background-color: var(--primary-color);
+}
+
+.form-filter-container {
+  width: 100%;
+}
+
+.form-filter-container input {
+  border: none;
+  background: none;
+  width: 100%;
+  color: var(--light-color);
+}
+
+.form-filter-container input::placeholder {
+  color: #ccc6e159;
+}
+
+.form-filter-container input:focus {
+  outline: 0px solid;
+  outline-offset: 0px;
+}
