@@ -16,9 +16,10 @@
     background-color: var(--light-color);
     color: #000;
     cursor: pointer;
-
 }
-
+.buttonPrimaryLigth:hover{
+    background-color: #b8b2cc;
+}
 .Form__submit--div{
     display: flex;
     width: 100%;
@@ -75,6 +76,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    position: relative;
 }
 
 .Form__session--input{
@@ -117,11 +119,22 @@
 .Form__signUp--span{
     color: var(--primary-color);
     font-weight: 700;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 765px) {
+.Form__session--show{
+    width: 2.4rem;
+    height: 2.4rem;
+    bottom: 1rem;
+    right: 2rem;
 
-    
+}
+
+@media screen and (min-width: 765px) {
+
+    .Form__signUp{
+        bottom: 3rem;
+    }
 
 
 }

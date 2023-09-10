@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Form.css'
 import { Google } from './assets/svg'
+import show from './assets/show.png'
+import eye from './assets/eye.png'
 const FormSignIn = () => {
+  const [showPassword, setShowPassword] = useState(false)
   return (
     <form className='Form'>
-
+      <div className='Login__title'>
+        <h1 className='Login__title--h1'>Welcome back!</h1>
+        <h2 className='Login__title--h2'>Please enter your details</h2>
+      </div>
       <div className='Form__session'>
         <input className='Form__session--input' name='email' type='text' placeholder='Email' />
       </div>
       <div className='Form__session'>
-        <input className='Form__session--input' name='password' type='password' placeholder='Password' />
+        <input className='Form__session--input' name='password' type={`${showPassword ? 'text' : 'password'}`} placeholder='Password' />
+        {showPassword
+          ? <img src={eye} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />
+          : <img src={show} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />}
       </div>
 
       <div className='Form__remember'>

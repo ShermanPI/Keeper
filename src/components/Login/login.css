@@ -3,8 +3,12 @@
     height: 100%;
     position: fixed;
     background-color: var(--light-color);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
+    justify-items: flex-end;
+  
+    margin: 0;
 }
 
 .Login{
@@ -13,20 +17,23 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 1rem;
+    align-items: center;
     position: relative;
     border-radius: 1rem;
+    padding: 1rem;
+    
 }
 
 
 .Login__title--h1{
-    font-size: 4.8;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-transform: capitalize;
 }
 .Login__title--h2{
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--light-color);
     margin-top: 1rem;
@@ -41,38 +48,62 @@
     justify-content: center;
 }
 .Login__logo{
-    margin: 2rem;
+    margin-top: 2rem;
 }
 
 .Login__logo--img{
-    width: 6.4rem;
-    height: 6.4rem;
+    max-width: 6.4rem;
+    max-height: 6.4rem;
    
 }
 
+.Design{
+    display: none;
+}
+
+.float{
+    position: absolute;
+}
 
 
+@media screen and (min-width: 765px) {
+    .Login{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .Login__title--h1{
+        font-size: 3.8rem;
+    }
+}
 
 
-@media screen and (min-width: 465px) {
+@media screen and (min-width: 1100px) {
+    .Content{
+        grid-template-columns: 1fr 1fr;
+    }
+    
     .Login{
         width: 57.4rem;
         height: 78.6rem;
         padding:0 4rem ;
+        margin-right: 2rem;
     }
 
-    /* .Login__title{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    } */
 
     .Login__title--h1{
         font-size: 3.8rem;
     }
 
-
-    
+    .Design{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+ 
 }
+
+
+
