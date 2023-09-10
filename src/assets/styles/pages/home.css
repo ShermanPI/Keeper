@@ -53,3 +53,7 @@ body {
 .logotext-image-container {
   width: 4rem;
 }
+
+.hidden {
+  display: none;
+}

@@ -8,18 +8,24 @@ import { useState } from 'react'
 
 export default function Home () {
   const [selectedLabel, setSelectedLabel] = useState('category - 1')
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const handlerMenuOpener = (event) => {
+    console.log('se le ha dado click')
+    setMenuOpen(!menuOpen)
+  }
 
   return (
     <div className='home-container'>
-      <Header />
+      <Header handlerMenuOpen={handlerMenuOpener} />
       <section className='dashboard-container'>
 
-        <section className='categories-menu'>
+        <section className={`categories-menu ${menuOpen && 'hidden'}`} onClick={handlerMenuOpener}>
           <section className='categories-section'>
 
             <div className='logo-text'>
               <div className='logotext-image-container'>
-                <img src='src/assets/images/logo.png' alt='' />
+                <img src='src/assets/images/logo.png' alt='Keeper App Logo' />
               </div>
               <h1>Keeper</h1>
             </div>
