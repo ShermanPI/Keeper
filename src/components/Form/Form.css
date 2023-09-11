@@ -20,6 +20,20 @@
 .buttonPrimaryLigth:hover{
     background-color: #b8b2cc;
 }
+
+.Form__error--input{
+    border-bottom: solid .1rem red;
+}
+
+.Form__error--h1{
+    color: red;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: start;
+    width: 100%;
+    padding: 0 2.5rem;
+
+}
 .Form__submit--div{
     display: flex;
     width: 100%;
@@ -74,8 +88,10 @@
 
 .Form__session{
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
+    align-items: center;
     position: relative;
 }
 
@@ -106,7 +122,7 @@
     align-items: center;
     justify-content: center; */
     position: absolute;
-    bottom: 7rem;
+    bottom: 2rem;
     text-align: center;
 }
 
@@ -134,6 +150,11 @@
 
     .Form__signUp{
         bottom: 3rem;
+    }
+
+    .Form{
+    padding:  0;
+    margin-top: 0;
     }
 
 

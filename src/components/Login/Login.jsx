@@ -1,11 +1,9 @@
 import React from 'react'
-import FormSignIn from '../Form/FormSignIn'
 import './login.css'
 import logo from '../../assets/images/logo.png'
 import { Blob, MobileNoteList } from './assets/svg'
-import FormSignUp from '../Form/FormSignUp'
 
-const Login = () => {
+const Login = ({ children }) => {
   return (
     <main className='Content'>
       <div className='Design'>
@@ -15,9 +13,9 @@ const Login = () => {
       <div className='Login'>
         <div className='Login__logo'>
           <img className='Login__logo--img' src={logo} alt='Logo' />
+
         </div>
-        {/* <FormSignUp /> */}
-        <FormSignIn />
+        {children}
       </div>
     </main>
   )
