@@ -7,11 +7,10 @@ import { Inventory, Ligthbulb, PaperBin, Tags } from '../components/Category/ass
 import { useState } from 'react'
 
 export default function Home () {
-  const [selectedLabel, setSelectedLabel] = useState('category - 1')
+  const [selectedLabel, setSelectedLabel] = useState('category-1')
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const handlerMenuOpener = (event) => {
-    console.log('se le ha dado click')
+  const handlerMenuOpener = () => {
     setMenuOpen(!menuOpen)
   }
 
@@ -20,8 +19,8 @@ export default function Home () {
       <Header handlerMenuOpen={handlerMenuOpener} />
       <section className='dashboard-container'>
 
-        <section className={`categories-menu ${menuOpen && 'hidden'}`} onClick={handlerMenuOpener}>
-          <section className='categories-section'>
+        <section className={`categories-menu ${menuOpen ? '' : 'hidden'}`} onClick={handlerMenuOpener}>
+          <section className='categories-section' onClick={(e) => e.stopPropagation()}>
 
             <div className='logo-text'>
               <div className='logotext-image-container'>

@@ -4,9 +4,7 @@ import { MenuIcon, FrameIcon } from './assets/images/icons'
 export default function Header ({ handlerMenuOpen }) {
   return (
     <header className='header-container'>
-      {/* <div className='logo-container'>
-        <img src='../../assets/images/logo.png' />
-      </div> */}
+
       <button className='icon' onClick={handlerMenuOpen}>
         <MenuIcon />
       </button>
