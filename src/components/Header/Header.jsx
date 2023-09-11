@@ -1,11 +1,11 @@
 import './assets/styles/header.css'
 import { MenuIcon, FrameIcon } from './assets/images/icons'
 
-export default function Header ({ handlerMenuOpen }) {
+export default function Header ({ menuOpenHandler }) {
   return (
     <header className='header-container'>
 
-      <button className='icon' onClick={handlerMenuOpen}>
+      <button className='icon' onClick={menuOpenHandler}>
         <MenuIcon />
       </button>
       <form className='form-filter-container'>
