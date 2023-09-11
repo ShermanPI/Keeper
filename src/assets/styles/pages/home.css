@@ -6,7 +6,7 @@ body {
 }
 
 .home-container {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,18 @@ body {
 }
 
 .dashboard-container {
+  height: 100%;
   display: flex;
   gap: 2rem;
+}
+
+.all-notes-container{
+  overflow: scroll;
+  max-height: 100%;
+  padding-bottom: 8vh;
+}
+
+
+.all-notes-container::-webkit-scrollbar{
+  display: none;
 }
