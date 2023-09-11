@@ -12,7 +12,6 @@
 
 .menu-category h2 {
   font-weight: 600;
-  font-size: calc(1rem + 1.5vw);
 }
 
 .menu-category.selected {

@@ -1,4 +1,5 @@
 html {
+  /* reset rem to 10 px*/
   font-size: 62.5%;
 }
 
@@ -14,38 +15,10 @@ svg {
   width: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: calc(1rem + 1.5vw);
+h1{
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
 }
 
-@media (min-width: 1024px) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: calc(1rem + 0.5vw);
-  }
+h2{
+  font-size: clamp(1rem, 0.8vw, 1.8rem);
 }
-
-p,
-b {
-  font-size: calc(1rem + 0.5vw);
-  line-height: 1.4;
-}
-/* 
-h1 {
-  font-size: 5.9vw;
-}
-h2 {
-  font-size: 3vh;
-}
-p {
-  font-size: 1rem;
-} */
