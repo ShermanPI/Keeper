@@ -1,12 +1,12 @@
 import './assets/style/noteSection.css'
 
-export default function NotesSection ({ children, title }) {
+export default function NotesSection ({ children, title, columns }) {
   return (
     <section className='note-section'>
-      <h4 className='section-title'>
-        {title}
-      </h4>
-      <section className='notes-container'>
+      <h3 className='section-title'>
+        {title.toUpperCase()}
+      </h3>
+      <section className={`notes-container ${columns}`}>
         {children}
       </section>
     </section>

@@ -17,8 +17,7 @@
 }
 
 .icon {
-  font-size: 1.4rem;
-  min-width: 24px;
+  width: 24px;
   height: 24px;
   display: flex;
   border-radius: 100%;

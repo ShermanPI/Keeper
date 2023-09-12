@@ -12,7 +12,6 @@
 
 .menu-category h2 {
   font-weight: 600;
-  font-size: calc(1rem + 1.5vw);
 }
 
 .menu-category.selected {
@@ -24,5 +23,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(2rem + 1.5vw);
+  width: clamp(2.1rem, 3.2vw, 2.4rem);
 }

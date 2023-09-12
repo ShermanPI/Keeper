@@ -3,7 +3,7 @@ import './assets/style/category.css'
 export default function MenuCategory ({ id, labelHandler, selectedLabel, icon, children }) {
   const isSelected = id === selectedLabel
 
-  const handlerClick = () => {
+  const handlerClick = (e) => {
     if (!isSelected) {
       labelHandler(id)
     }
