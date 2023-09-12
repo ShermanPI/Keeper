@@ -1,7 +1,33 @@
 /* mansory layout */
 .notes-container {
+  /* columns: 6 115px; just another way to make columns responsive, but shrinks the text too much */
   columns: 2;
   gap: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .notes-container {
+    columns: 3;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .notes-container {
+    columns: 4;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .notes-container {
+    columns: 5;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .notes-container {
+    columns: 6;
+  }
+}
+
+.notes-container.one-column{
+  columns: 1;
 }
 
 .notes-container > div {

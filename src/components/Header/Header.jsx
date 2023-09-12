@@ -1,7 +1,7 @@
 import './assets/styles/header.css'
-import { MenuIcon, FrameIcon } from './assets/images/icons'
+import { MenuIcon, FrameIcon, OneColumnGridIcon } from './assets/images/icons'
 
-export default function Header ({ menuOpenHandler }) {
+export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid }) {
   return (
     <header className='header-container'>
 
@@ -11,8 +11,8 @@ export default function Header ({ menuOpenHandler }) {
       <form className='form-filter-container'>
         <input type='text' placeholder='Search' />
       </form>
-      <button className='icon'>
-        <FrameIcon />
+      <button className='icon' onClick={gridHandler}>
+        {oneColumnGrid ? <FrameIcon /> : <OneColumnGridIcon />}
       </button>
       <button className='profile-picture-container icon'>
         S

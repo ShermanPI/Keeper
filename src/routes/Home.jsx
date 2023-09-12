@@ -7,6 +7,11 @@ import SideMenu from '../components/SideMenu/SideMenu'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [oneColumnGrid, setOneColumnGrid] = useState(false)
+
+  const gridHandler = () => {
+    setOneColumnGrid(!oneColumnGrid)
+  }
 
   const menuOpenHandler = () => {
     setMenuOpen(!menuOpen)
@@ -14,19 +19,19 @@ export default function Home () {
 
   return (
     <div className='home-container'>
-      <Header menuOpenHandler={menuOpenHandler} />
+      <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
       <section className='dashboard-container'>
         <SideMenu menuOpen={menuOpen} menuOpenHandler={menuOpenHandler} />
 
-        <section className='all-notes-container'>
-          <NotesSection title='Pinned'>
+        <section className={`all-notes-container ${oneColumnGrid ? 'one-column-width' : ''}`}>
+          <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
             <Note title='Hola'>Note 1</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
             <Note title='Hola'>Note 1</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
           </NotesSection>
-          <NotesSection title='Others'>
+          <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>
             <Note title='Hola'>Note 1</Note>
             <Note title='Hola'>s quo rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
