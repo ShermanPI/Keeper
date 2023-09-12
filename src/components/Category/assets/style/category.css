@@ -23,5 +23,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(2rem + 1.5vw);
+  width: clamp(2.1rem, 3.2vw, 2.4rem);
 }

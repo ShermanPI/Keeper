@@ -3,7 +3,7 @@ import './assets/style/note.css'
 export default function Note ({ children, title }) {
   return (
     <div className='note'>
-      <h4>{title}</h4>
+      <b>{title}</b>
       <p>{children}</p>
     </div>
   )

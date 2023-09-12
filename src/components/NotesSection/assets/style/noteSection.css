@@ -1,7 +1,7 @@
 /* mansory layout */
 .notes-container {
   columns: 2;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .notes-container > div {
@@ -9,5 +9,7 @@
 }
 
 .section-title {
+  letter-spacing: 0.2rem;
+  font-weight: 500;
   line-height: 4;
 }
