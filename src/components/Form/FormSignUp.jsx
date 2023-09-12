@@ -48,8 +48,8 @@ const FormSignUp = () => {
 
   return (
     <form className='Form' onSubmit={(e) => { setData(e) }}>
-      <div className='Login__title'>
-        <h1 className='Login__title--h1'>Sign Up!</h1>
+      <div className='Form__title'>
+        <h1 className='Form__title--h1'>Sign Up!</h1>
         {signUpError && <h1 className='Form__ErrorMessage'>{signUpError}</h1>}
       </div>
       <div className='Form__session'>
