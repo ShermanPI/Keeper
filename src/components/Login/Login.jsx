@@ -13,7 +13,6 @@ const Login = ({ children }) => {
       <div className='Login'>
         <div className='Login__logo'>
           <img className='Login__logo--img' src={logo} alt='Logo' />
-
         </div>
         {children}
       </div>

@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Form.css'
 import { Google } from './assets/svg'
 import show from './assets/show.png'
 import eye from './assets/eye.png'
+import { session } from '../../context/contextLogin'
 const FormSignUp = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const { createSession, sigInGoogle, signUpError } = useContext(session)
   const Navigate = useNavigate()
-  const [formData, setFormData] = useState({
-    fullName: '', email: '', password: ''
-  })
   const [errorForm, setErrorForm] = useState({ fullName: false, email: false, password: false, confirmPassword: false })
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -27,27 +26,17 @@ const FormSignUp = () => {
     if (email === '') { form = { ...form, email: 'empty' } }
     if (password === '') { form = { ...form, password: 'empty' } }
     if (confirmPassword === '') { form = { ...form, confirmPassword: 'empty' } }
-    if (!name.match(/^[a-zA-Z_]+$/) && name !== '') {
-      form = { ...form, fullName: true }
-    }
     if (password !== confirmPassword) {
       form = { ...form, password: true }
-    } else if (password !== '') {
+    } else if (password.length < 6) {
+      form = { ...form, password: 'short' }
+    } else {
       form = { ...form, password: false }
     }
 
-    if (email.match(validRegex) && name.match(/^[a-zA-Z_]+$/)) {
+    if (email.match(validRegex)) {
       if (!form.password) {
-        setFormData({
-          fullName: name,
-          email,
-          password
-        })
-
-        setName('')
-        setEmail('')
-        setPassword('')
-        setConfirmPassword('')
+        createSession(email, password, name)
         return setErrorForm({ fullName: false, email: false, password: false, confirmPassword: false })
       }
     } else if (email !== '') {
@@ -57,13 +46,11 @@ const FormSignUp = () => {
     return setErrorForm(form)
   }
 
-  console.log(errorForm)
-
-  console.log(formData)
   return (
     <form className='Form' onSubmit={(e) => { setData(e) }}>
       <div className='Login__title'>
         <h1 className='Login__title--h1'>Sign Up!</h1>
+        {signUpError && <h1 className='Form__ErrorMessage'>{signUpError}</h1>}
       </div>
       <div className='Form__session'>
         <input
@@ -116,7 +103,9 @@ const FormSignUp = () => {
         />
         {errorForm.password === true
           ? <p className='Form__error--h1'>password does not match</p>
-          : errorForm.password === 'empty' && <p className='Form__error--h1'>fields cannot be empty</p>}
+          : errorForm.password === 'empty'
+            ? <p className='Form__error--h1'>fields cannot be empty</p>
+            : errorForm.password === 'short' && <p className='Form__error--h1'>Must contain at least 8 characters</p>}
         {showPassword
           ? <img src={eye} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />
           : <img src={show} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />}
@@ -126,14 +115,14 @@ const FormSignUp = () => {
         <label className='Form__remember--label'>Remember for 30 days</label>
       </div>
       <div className='Form__submit'>
-        <button className='Form__submit--button buttonPrimary'>Log In</button>
-        <div className='Form__submit--google Form__submit--button buttonPrimaryLigth'>
+        <button className='Form__submit--button buttonPrimary'>Sign up</button>
+        <div className='Form__submit--google Form__submit--button buttonPrimaryLigth' onClick={() => { sigInGoogle() }}>
           <Google />
-          <h1 className='title Form__submit--h1'>Log in with Google</h1>
+          <h1 className='title Form__submit--h1'>Sign up with Google</h1>
         </div>
       </div>
       <div className='Form__signUp'>
-        <h1 className='Form__signUp--h1'>Already have an account?  <span onClick={() => { Navigate('/login') }} className='Form__signUp--span'>Log in</span></h1>
+        <h1 className='Form__signUp--h1'>Already have an account?  <span onClick={() => { Navigate('/') }} className='Form__signUp--span'>Log in</span></h1>
       </div>
     </form>
   )

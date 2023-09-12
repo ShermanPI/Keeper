@@ -7,8 +7,11 @@
     grid-template-columns: 1fr;
     align-items: center;
     justify-items: flex-end;
-  
     margin: 0;
+}
+
+.float{
+    position: absolute;
 }
 
 .Login{
@@ -26,27 +29,6 @@
 }
 
 
-.Login__title--h1{
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-transform: capitalize;
-}
-.Login__title--h2{
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--light-color);
-    margin-top: 1rem;
-}
-
-
-.Login__title{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 .Login__logo{
     margin-top: 2rem;
 }
@@ -61,9 +43,7 @@
     display: none;
 }
 
-.float{
-    position: absolute;
-}
+
 
 
 @media screen and (min-width: 765px) {
@@ -104,6 +84,13 @@
     }
  
 }
+
+
+
+
+/* @keyframes cursor {
+    50%{border-color: transparent;}
+} */
 
 
 

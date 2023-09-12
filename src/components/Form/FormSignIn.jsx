@@ -7,42 +7,51 @@ import eye from './assets/eye.png'
 import { session } from '../../context/contextLogin'
 const FormSignIn = () => {
   const Navigate = useNavigate()
-  const { initSession } = useContext(session)
+  const { initSession, sigInGoogle, signInError } = useContext(session)
   const [showPassword, setShowPassword] = useState(false)
-  const [formData, setFormData] = useState({
-    email: '', password: ''
-  })
-  const [errorForm, setErrorForm] = useState(false)
+
+  const [errorForm, setErrorForm] = useState({ password: false, email: false })
 
   const setData = (e) => {
+    // This function takes the values from the form and validates them and then sends them to the initSession function
     e.preventDefault()
+    let form = errorForm
     const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
-    if (e.target.email.value.match(validRegex)) {
-      setFormData({
-        email: e.target.email.value,
-        password: e.target.password.value
-      })
-      initSession()
-      return setErrorForm(false)
-    } else {
-      return setErrorForm(true)
+    const email = e.target.email.value
+    const password = e.target.password.value
+    // If the fields are empty, it updates the error status created in order to show the error
+    if (email === '') form = { ...form, email: 'empty' }
+    if (password === '') form = { ...form, password: 'empty' }
+    // validation of the email and password which, if both meet, sends the form data to the initSession function and resets the errors
+    if (email.match(validRegex) && form.password !== 'empty') {
+      initSession(email, password)
+      return setErrorForm({ password: false, email: false })
+    } else if (email !== '' && !email.match(validRegex)) {
+      form = { ...form, email: true }
     }
+    if (password !== '') {
+      form = { ...form, password: true }
+    }
+
+    return setErrorForm(form)
   }
 
-  console.log(formData)
   return (
     <form className='Form' onSubmit={(e) => { setData(e) }}>
-      <div className='Login__title'>
-        <h1 className='Login__title--h1'>Welcome back!</h1>
-        <h2 className='Login__title--h2'>Please enter your details</h2>
+      <div className='Form__title'>
+        <h1 className='Form__title--h1'>Welcome back!</h1>
+        <h2 className='Form__title--h2'>Please enter your details</h2>
+        {signInError && <h1 className='Form__ErrorMessage'>{signInError}</h1>}
       </div>
       <div className='Form__session'>
         <input className='Form__session--input' name='email' type='text' placeholder='Email' />
-        {errorForm && <p className='Form__error--h1'>email incorrecto</p>}
+        {errorForm.email === true
+          ? <p className='Form__error--h1'>Invalid Email</p>
+          : errorForm.email === 'empty' && <p className='Form__error--h1'>fields cannot be empty</p>}
       </div>
       <div className='Form__session'>
         <input className='Form__session--input' name='password' type={`${showPassword ? 'text' : 'password'}`} placeholder='Password' />
+        {errorForm.password === 'empty' && <p className='Form__error--h1'>fields cannot be empty</p>}
         {showPassword
           ? <img src={eye} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />
           : <img src={show} onClick={() => { setShowPassword(!showPassword) }} alt='show' className='Form__session--show float' />}
@@ -54,13 +63,13 @@ const FormSignIn = () => {
       </div>
       <div className='Form__submit'>
         <button className='Form__submit--button buttonPrimary'>Log In</button>
-        <div className='Form__submit--google Form__submit--button buttonPrimaryLigth'>
+        <div className='Form__submit--google Form__submit--button buttonPrimaryLigth' onClick={() => { sigInGoogle() }}>
           <Google />
           <h1 className='title Form__submit--h1'>Log in with Google</h1>
         </div>
       </div>
       <div className='Form__signUp'>
-        <h1 className='Form__signUp--h1'>Don’t have an account? <span onClick={() => { Navigate('/login/signUp') }} className='Form__signUp--span'>Sign Up</span></h1>
+        <h1 className='Form__signUp--h1'>Don’t have an account? <span onClick={() => { Navigate('/signUp') }} className='Form__signUp--span'>Sign Up</span></h1>
       </div>
     </form>
   )

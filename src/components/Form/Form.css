@@ -21,29 +21,6 @@
     background-color: #b8b2cc;
 }
 
-.Form__error--input{
-    border-bottom: solid .1rem red;
-}
-
-.Form__error--h1{
-    color: red;
-    font-size: 1rem;
-    text-transform: capitalize;
-    text-align: start;
-    width: 100%;
-    padding: 0 2.5rem;
-
-}
-.Form__submit--div{
-    display: flex;
-    width: 100%;
-    margin-top: 5rem;
-}
-
-.Form__submit--h1{
-    margin-left: 2rem;
-    font-size: 2rem;
-}
 
 .Form{
     display: flex;
@@ -56,34 +33,60 @@
 
 }
 
-.Form__submit--button{
-    width: 90%;
-    margin-top: 3rem;
-    padding: 2rem;
-    border: none;
-    border-radius: 2.5rem;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-
-.Form__submit--google{
+.Form__title{
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
 }
 
-.Form__remember{
+.Form__title--h1{
+    color: var(--primary-color);
+    font-size: 3.8rem;
+    font-weight: 700;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
     width: 90%;
-    margin-top: 2.5rem;
-    display: flex;
-    align-items: center;
+    /* border-right: .5rem solid; */
+    position: relative;
+    animation: typing 2s steps(20),
+    cursor .4s step-end infinite alternate;
 }
 
-.Form__remember--label{
-    margin-left: .5rem;
-    font-size: 1.4rem;
+.Form__title--h2{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--light-color);
+    margin-top: 1rem;
+}
+
+
+
+.Form__error--input{
+    border-bottom: solid .1rem red;
+}
+
+.Form__error--h1{
+    color: red;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: start;
+    width: 100%;
+    padding: 0 2.5rem;
+}
+
+.Form__ErrorMessage{
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    text-align: start;
+    width: 100%;
+    padding: 1rem;
+    color: red;
+    background-color: var(--light-color);
+    text-align: center;
+    margin-top:2rem;
 }
 
 .Form__session{
@@ -108,13 +111,64 @@
     border-bottom: solid .1rem rgb(10, 104, 225);
 }
 
+.Form__session--show{
+    width: 2.4rem;
+    height: 2.4rem;
+    bottom: 1rem;
+    right: 2rem;
+}
+
 .Form__submit{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 1rem;
 }
+
+
+.Form__submit--div{
+    display: flex;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.Form__submit--h1{
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+.Form__submit--button{
+    width: 90%;
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 2.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.Form__submit--google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.Form__remember{
+    width: 90%;
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.Form__remember--label{
+    margin-left: .5rem;
+    font-size: 1.4rem;
+}
+
+
 
 .Form__signUp{
     width: 90%;
@@ -138,13 +192,7 @@
     cursor: pointer;
 }
 
-.Form__session--show{
-    width: 2.4rem;
-    height: 2.4rem;
-    bottom: 1rem;
-    right: 2rem;
 
-}
 
 @media screen and (min-width: 765px) {
 
@@ -160,6 +208,13 @@
 
 }
 
+@keyframes typing {
+    from{
+        width: 0
+    }
 
-/* Form Sign In */
+}
+
+
+
 
