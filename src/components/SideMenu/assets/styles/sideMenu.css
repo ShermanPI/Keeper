@@ -26,6 +26,29 @@
   
 }
 
+@media only screen and (min-width: 768px) {
+  .categories-menu {
+    position:relative;
+    width: 35rem;
+  }
+
+  .categories-section {
+    width: 100%;
+  }
+}
+
+/* @media only screen and (min-width: 992px) {
+  .notes-container {
+    columns: 5;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .notes-container {
+    columns: 6;
+  }
+} */
+
+
 .categories-section.hidden{
   transform: translateX(-100%);
 }
