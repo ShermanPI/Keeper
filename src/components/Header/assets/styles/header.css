@@ -12,6 +12,7 @@
 }
 
 .header-container button {
+  min-width: 2.4rem;
   border: none;
   cursor: pointer;
 }

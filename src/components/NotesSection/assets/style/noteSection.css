@@ -5,24 +5,19 @@
   gap: 1rem;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   .notes-container {
     columns: 3;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 992px) {
   .notes-container {
     columns: 4;
   }
 }
-@media only screen and (min-width: 992px) {
-  .notes-container {
-    columns: 5;
-  }
-}
 @media only screen and (min-width: 1200px) {
   .notes-container {
-    columns: 6;
+    columns: 5;
   }
 }
 
