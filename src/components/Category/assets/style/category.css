@@ -4,18 +4,26 @@
   align-items: center;
   padding: 1rem 2rem;
   gap: 1.5rem;
+  border-radius: 3rem;
+
 }
 
 .categories-list li {
   list-style: none;
 }
 
+.menu-category:hover{
+  background-color: rgba(255, 255, 255, 0.125);
+  cursor: pointer;
+}
+
 .menu-category h2 {
   font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
 }
 
 .menu-category.selected {
-  border-radius: 3rem;
   background-color: var(--light-primary-color);
 }
 
@@ -24,4 +32,19 @@
   justify-content: center;
   align-items: center;
   width: clamp(2.1rem, 3.2vw, 2.4rem);
+  min-width: 2.1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .menu-category{
+    border-radius: 0px 3rem 3rem 0px;
+    margin-bottom: 0rem;
+    overflow: hidden;
+    padding: 1rem 3rem;
+    transition: all 0.4s ease;
+  }
+
+  .category-icon-container{
+    min-width: 24px;
+  }
 }
