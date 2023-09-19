@@ -43,9 +43,25 @@
 .logotext-image-container {
   width: 4rem;
 }
-  
+
+.logo-landscape{
+  display: none;
+}
 
 @media only screen and (min-width: 768px) {
+  .logotext-image-container{
+    width: 3.6rem;
+  }
+  .logo-landscape{
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    font-weight: 400;
+  }
+  .logo-landscape h1{
+    font-weight: 500;
+    font-size: 2rem;
+  }
 
   .categories-menu {
     max-width: 28rem;
@@ -80,7 +96,6 @@
     display: none;
   }
 
-  /* .categories-section.hidden h2{
-    display: none;
-  } */
+
+
 }

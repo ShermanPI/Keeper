@@ -8,6 +8,12 @@ export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid })
       <button className='icon' onClick={menuOpenHandler}>
         <MenuIcon />
       </button>
+      <div className='logo-landscape'>
+        <div className='logotext-image-container'>
+          <img src='src/assets/images/logo.png' alt='Keeper App Logo' />
+        </div>
+        <h1>Keeper</h1>
+      </div>
 
       <form className='form-filter-container'>
         <input type='text' placeholder='Search' />

@@ -61,6 +61,12 @@
     gap: 1rem;
     padding: 0.8rem;
     background-color: transparent;
+    justify-content: flex-start;
+  }
+
+  .form-filter-container{
+    width: 50%;
+    margin-inline: auto;
   }
 
   .form-filter-container input{
@@ -71,5 +77,10 @@
 
   .icon {
     margin-inline: 1.5rem;
+  }
+
+  .profile-picture-container{
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
