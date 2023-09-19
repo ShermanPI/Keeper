@@ -8,6 +8,7 @@ export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid })
       <button className='icon' onClick={menuOpenHandler}>
         <MenuIcon />
       </button>
+
       <form className='form-filter-container'>
         <input type='text' placeholder='Search' />
       </form>

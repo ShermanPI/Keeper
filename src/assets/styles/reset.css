@@ -19,6 +19,11 @@ h1 {
   font-size: clamp(2.2rem, 4vw, 3rem);
 }
 
+h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
 p, b{
   font-size: clamp(1.4rem, 2vw, 1.6rem);
 }

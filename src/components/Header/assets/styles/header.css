@@ -51,3 +51,25 @@
   outline: 0px solid;
   outline-offset: 0px;
 }
+
+@media only screen and (min-width: 768px) {
+  .header-container {
+    border-bottom: 1px solid #ccc6e151;
+    border-radius: 0px;
+    margin-block: 0px;
+    margin-bottom: 0.8rem;
+    gap: 1rem;
+    padding: 0.8rem;
+    background-color: transparent;
+  }
+
+  .form-filter-container input{
+    line-height: 3;
+    font-size: 1.6rem;
+    background-color: gray;
+  }
+
+  .icon {
+    margin-inline: 1.5rem;
+  }
+}
