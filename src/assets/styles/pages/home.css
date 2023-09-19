@@ -34,9 +34,13 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
+  .all-notes-container{
+    margin-inline: 6rem;
+  }
+  
   .all-notes-container.one-column-width{
-    width: 80%;
     margin-inline: auto;
+    max-width: 598px;
   }
 }
 

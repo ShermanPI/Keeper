@@ -1,5 +1,5 @@
 import './assets/styles/header.css'
-import { MenuIcon, FrameIcon, OneColumnGridIcon } from './assets/images/icons'
+import { MenuIcon, FrameIcon, OneColumnGridIcon, MagnifyingGlasses } from './assets/images/icons'
 
 export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid }) {
   return (
@@ -16,7 +16,11 @@ export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid })
       </div>
 
       <form className='form-filter-container'>
+        <div className='search-icon'>
+          <MagnifyingGlasses />
+        </div>
         <input type='text' placeholder='Search' />
+        <div className='search-icon' />
       </form>
       <button className='icon' onClick={gridHandler}>
         {oneColumnGrid ? <FrameIcon /> : <OneColumnGridIcon />}

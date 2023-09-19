@@ -38,9 +38,9 @@
 
 .form-filter-container input {
   border: none;
-  background: none;
+  background: transparent;
   width: 100%;
-  color: var(--light-color);
+  color: #fff;
 }
 
 .form-filter-container input::placeholder {
@@ -52,7 +52,15 @@
   outline-offset: 0px;
 }
 
+.search-icon{
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
+  .header-container button{
+    font-size: medium;
+  }
+
   .header-container {
     border-bottom: 1px solid #ccc6e151;
     border-radius: 0px;
@@ -65,14 +73,28 @@
   }
 
   .form-filter-container{
+    display: flex;
+    background-color: rgba(241,243,244,.24);
     width: 50%;
-    margin-inline: auto;
+    margin-right: auto;
+    border-radius: 0.8rem;
+    max-width: 75rem;
+  }
+
+  .search-icon{
+    width: 40px;
+    margin-inline: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
   .form-filter-container input{
     line-height: 3;
     font-size: 1.6rem;
-    background-color: gray;
+    font-weight: 500;
+    /* padding-left: 1rem; */
   }
 
   .icon {
@@ -80,6 +102,8 @@
   }
 
   .profile-picture-container{
+    margin: 0px;
+    margin-right: 2rem;
     width: 3.2rem;
     height: 3.2rem;
   }
