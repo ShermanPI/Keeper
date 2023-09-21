@@ -11,6 +11,18 @@
   transition: all 0.3s ease;
 }
 
+.note-buttons-container{
+  margin-top: 2rem;
+  display: flex;
+  /* grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr)); */
+  gap: 1.2rem;
+}
+
+.note-buttons-container svg{
+  fill: var(--border-color);
+  width: 1.8rem;
+}
+
 @media only screen and (max-width: 600px) {
   .note{
     padding: 1.2rem;
