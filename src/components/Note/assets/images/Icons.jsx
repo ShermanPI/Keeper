@@ -29,3 +29,20 @@ export const DeleteIcon = () => {
     </svg>
   )
 }
+
+export const PushPinIcon = () => {
+  return (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+      <path fill='none' d='M0 0h24v24H0z' />
+      <path fill='#ffffff' d='M17 4a2 2 0 0 0-2-2H9c-1.1 0-2 .9-2 2v7l-2 3v2h6v5l1 1 1-1v-5h6v-2l-2-3V4z' />
+    </svg>
+  )
+}
+
+export const CheckIcon = () => {
+  return (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'>
+      <path d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z' />
+    </svg>
+  )
+}
