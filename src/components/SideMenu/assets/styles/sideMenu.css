@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: #ccc6e140;
   transition: all 0.4s ease;
+  z-index: 2;
 }
 
 .categories-menu.hidden {
@@ -97,7 +98,5 @@
   .logo-text{
     display: none;
   }
-
-
 
 }
