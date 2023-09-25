@@ -43,12 +43,29 @@
   background-color: #fff;
   border-radius: 5rem;
   position: absolute;
-  left: 0rem;
-  top: 0rem;
+  left: -0.8rem;
+  top: -0.8rem;
   opacity: 0;
   transition: all 0.2s ease;
   padding: 0.1rem;
   cursor: pointer;
+}
+
+.file-note-icon{
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+  opacity: 0;
+  transition: all 0.2s ease;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.file-note-icon:hover{
+  background-color: #ffffff17;
+  border-radius: 3rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -69,6 +86,10 @@
     opacity: 1;
   }
 
+  .note:hover .file-note-icon{
+    opacity: 1;
+  }
+  
   .note:hover .select-note-icon{
     opacity: 1;
   }

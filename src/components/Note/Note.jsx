@@ -1,4 +1,4 @@
-import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon } from './assets/images/Icons'
+import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import './assets/style/note.css'
 
 export default function Note ({ children, title }) {
@@ -6,6 +6,9 @@ export default function Note ({ children, title }) {
     <div className='note'>
       <div className='select-note-icon'>
         <CheckIcon />
+      </div>
+      <div className='file-note-icon'>
+        <PushPinIcon />
       </div>
       <b>{title}</b>
       <p>{children}</p>

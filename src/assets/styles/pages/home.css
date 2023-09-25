@@ -33,6 +33,37 @@ body {
   width: 100%;
 }
 
+.add-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-icon svg{
+  width: 2rem;
+  height: 2rem;
+}
+
+.add-note-btn{
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  background: var(--primary-color);
+  color: #ccc6e1;
+  border-radius: 5rem;
+  font-size: 0px;
+  padding: 1.6rem;
+  box-shadow: 0px 0px 5px 1px #0000008d;
+  position: absolute;
+  z-index: 2;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.add-note-btn:hover{
+  background: #654eb0ac;
+}
+
 @media only screen and (min-width: 768px) {
   .all-notes-container{
     margin-inline: 6rem;
@@ -41,6 +72,28 @@ body {
   .all-notes-container.one-column-width{
     margin-inline: auto;
     max-width: 598px;
+  }
+
+  .add-icon svg{
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .add-note-btn{
+    background: var(--light-primary-color);
+    justify-content: center;
+    border-radius: 0.6rem;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    position: initial;
+    font-size: 1.4rem;
+    margin-left: auto;
+  }
+
+  .add-note-btn:hover{
+    background: #654eb0bd;
   }
 }
 
