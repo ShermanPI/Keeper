@@ -1,9 +1,16 @@
+import { useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import './assets/style/note.css'
 
 export default function Note ({ children, title }) {
+  const [amplified, setAmplified] = useState(false)
+
+  const handleClick = () => {
+    setAmplified(!amplified)
+  }
+
   return (
-    <div className='note'>
+    <div className={`note ${amplified ? 'amplified-note' : ''}`} onClick={handleClick}>
       <div className='select-note-icon'>
         <CheckIcon />
       </div>
