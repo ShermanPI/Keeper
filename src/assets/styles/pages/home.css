@@ -27,7 +27,7 @@ body {
 }
 
 .all-notes-container{
-  overflow: scroll;
+  /* overflow: auto; */
   max-height: 100%;
   padding-bottom: 12vh;
   width: 100%;
