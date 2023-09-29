@@ -27,7 +27,7 @@ body {
 }
 
 .all-notes-container{
-  /* overflow: auto; */
+  overflow: scroll;
   max-height: 100%;
   padding-bottom: 12vh;
   width: 100%;
@@ -67,6 +67,7 @@ body {
 @media only screen and (min-width: 768px) {
   .all-notes-container{
     margin-inline: 6rem;
+    padding: 1rem 1rem 15rem 1rem;
   }
   
   .all-notes-container.one-column-width{
