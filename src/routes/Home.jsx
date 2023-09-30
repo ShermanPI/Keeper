@@ -9,6 +9,7 @@ import SideMenu from '../components/SideMenu/SideMenu'
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
+  const [addNoteHidden, setAddNoteHidden] = useState(true)
 
   const gridHandler = () => {
     setOneColumnGrid(!oneColumnGrid)
@@ -18,14 +19,27 @@ export default function Home () {
     setMenuOpen(!menuOpen)
   }
 
+  const toggleNewNote = () => {
+    console.log('se le ha dado toggle a la noata')
+    setAddNoteHidden(!addNoteHidden)
+  }
+
   return (
     <div className='home-container'>
+
+      <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
+        <div className='new-note'>
+          <h1>Title</h1>
+          <p>This is the notes body</p>
+        </div>
+      </div>
+
       <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
       <section className='dashboard-container'>
         <SideMenu menuOpen={menuOpen} menuOpenHandler={menuOpenHandler} />
 
         <section className={`all-notes-container ${oneColumnGrid ? 'one-column-width' : ''}`}>
-          <button className='add-note-btn'>
+          <button className='add-note-btn' onClick={toggleNewNote}>
             <div className='add-icon'>
               <AddIcon />
             </div>
