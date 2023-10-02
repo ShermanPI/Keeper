@@ -1,15 +1,18 @@
 .note {
   border: 1px solid var(--border-color);
+  width: 100%;
   border-radius: 8px;
-  padding: 1.6rem 1.6rem 0.6rem 1.6rem;
+  padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-bottom: 1rem;
-  /* transition: all 0.3s ease; */
-  position: relative;
   user-select: none;
+  background-color: #202124;
+  transition: all 0.1s ease;
+  break-inside: avoid;
+  position: relative;
+  top: 0; left: 0; right: 0; 
 }
 
 .note:hover {
@@ -43,13 +46,13 @@
   height: 2rem;
   background-color: #fff;
   border-radius: 5rem;
-  position: absolute;
-  left: -0.8rem;
+  left: -2.4rem;
   top: -0.8rem;
   opacity: 0;
   transition: all 0.2s ease;
   padding: 0.1rem;
   cursor: pointer;
+  position: relative;
 }
 
 .file-note-icon{
@@ -101,12 +104,14 @@
   }
 }
 
-.amplified-note{
+.note.amplified-note{
+  z-index: 2;
   position: relative;
-  /* width: 100%; */
-  width: 50rem;
-  top: 10vh;
-  /* background-color: #202124; */
-  left: 0;
-  /* margin-left: 50rem; */
+  width: 60rem;
+  top: 10rem;
+  background-color: red;
+}
+
+.note-text{
+  margin-top: 1rem;
 }

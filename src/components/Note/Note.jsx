@@ -18,7 +18,7 @@ export default function Note ({ children, title }) {
         <PushPinIcon />
       </div>
       <b>{title}</b>
-      <p>{children}</p>
+      <p className='note-text'>{children}</p>
       <div className='note-buttons-container'>
         <div className='note-action-button'>
           <PalleteIcon />
