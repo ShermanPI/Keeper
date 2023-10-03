@@ -5,12 +5,13 @@ import Note from '../components/Note/Note'
 import { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
-import notesResponse from '../mock/with-response.json'
+import withResposne from '../mock/with-response.json'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
+  const [notesResponse, setNotesResponse] = useState(withResposne)
 
   const gridHandler = () => {
     setOneColumnGrid(!oneColumnGrid)
@@ -21,8 +22,16 @@ export default function Home () {
   }
 
   const toggleNewNote = () => {
-    console.log('se le ha dado toggle a la noata')
     setAddNoteHidden(!addNoteHidden)
+  }
+
+  const makeInvisibleNote = ({ id, noteElement }) => {
+    const noteClone = noteElement.cloneNode(true)
+    noteClone.style.opacity = 0
+    const idFound = notesResponse.findIndex(el => el.id === id)
+    const newArray = [...notesResponse]
+    newArray.splice(idFound, 0, noteClone)
+    console.log(newArray)
   }
 
   return (
@@ -48,12 +57,12 @@ export default function Home () {
           </button>
           <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
             {notesResponse.map(el => {
-              return <Note key={el.id} title={el.title}>{el.bodyText}</Note>
+              return <Note makeInvisibleNote={makeInvisibleNote} key={el.id} title={el.title} noteId={el.id}>{el.bodyText}</Note>
             })}
           </NotesSection>
           <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>
             <Note title='Hola'>Note 1</Note>
-            <Note title='Hola'>s quo rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
+            <Note title='Hola'>s quodafsdf.klgjnd.fkjgnsldfglsdfbgkjshdbfgkjhsdfbkgsjdhbfkghsbdfkgbsdkfgbskdfhbgksdfhbgksdjfhbgksdhfbgksdjhfbgksdhfbkgshdfbkgjshdfkgjhb rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
             <Note title='Hola'>Note 1</Note>
           </NotesSection>

@@ -1,21 +1,18 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import './assets/style/note.css'
 
-export default function Note ({ children, title }) {
+export default function Note ({ children, title, noteId, makeInvisibleNote }) {
   const [amplified, setAmplified] = useState(false)
+  const noteRef = useRef()
 
-  const handleClick = (e) => {
-    const targetWidth = e.target.offsetWidth
-    const targetHeight = e.target.offsetHeight
-    if (!amplified) {
-      console.log(targetWidth, targetHeight)
-    }
+  const handleClick = () => {
+    makeInvisibleNote({ id: noteId, noteElement: noteRef.current })
     setAmplified(!amplified)
   }
 
   return (
-    <div className={`note ${amplified ? 'amplified-note' : ''}`} onClick={handleClick}>
+    <div data-note-id={noteId} ref={noteRef} className={`note ${amplified ? 'amplified-note' : ''}`} onClick={handleClick}>
       <div className='select-note-icon'>
         <CheckIcon />
       </div>

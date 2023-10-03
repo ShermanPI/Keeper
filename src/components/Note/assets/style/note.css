@@ -13,6 +13,7 @@
   break-inside: avoid;
   position: relative;
   top: 0; left: 0; right: 0;
+  /* overflow: hidden; */
 }
 
 .note:hover {
@@ -114,4 +115,5 @@
 
 .note-text{
   margin-top: 1rem;
+  word-wrap:break-word
 }
