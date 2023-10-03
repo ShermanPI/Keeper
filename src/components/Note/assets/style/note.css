@@ -12,7 +12,7 @@
   transition: all 0.1s ease;
   break-inside: avoid;
   position: relative;
-  top: 0; left: 0; right: 0; 
+  top: 0; left: 0; right: 0;
 }
 
 .note:hover {
@@ -106,7 +106,7 @@
 
 .note.amplified-note{
   z-index: 2;
-  position: relative;
+  position: fixed;
   width: 60rem;
   top: 10rem;
   background-color: red;

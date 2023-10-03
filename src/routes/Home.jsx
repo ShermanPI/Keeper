@@ -5,6 +5,7 @@ import Note from '../components/Note/Note'
 import { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
+import notesResponse from '../mock/with-response.json'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -46,25 +47,15 @@ export default function Home () {
             Create Note
           </button>
           <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
-            <Note title='Hola'>Note 1</Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Note 1</Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
+            {notesResponse.map(el => {
+              return <Note key={el.id} title={el.title}>{el.bodyText}</Note>
+            })}
           </NotesSection>
           <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>
             <Note title='Hola'>Note 1</Note>
             <Note title='Hola'>s quo rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
             <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
             <Note title='Hola'>Note 1</Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-
           </NotesSection>
         </section>
       </section>

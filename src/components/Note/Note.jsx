@@ -5,7 +5,12 @@ import './assets/style/note.css'
 export default function Note ({ children, title }) {
   const [amplified, setAmplified] = useState(false)
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    const targetWidth = e.target.offsetWidth
+    const targetHeight = e.target.offsetHeight
+    if (!amplified) {
+      console.log(targetWidth, targetHeight)
+    }
     setAmplified(!amplified)
   }
 
