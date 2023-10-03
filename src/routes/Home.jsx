@@ -2,16 +2,15 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
-import withResposne from '../mock/with-response.json'
+import notesResponse from '../mock/with-response.json'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
-  const [notesResponse, setNotesResponse] = useState(withResposne)
 
   const gridHandler = () => {
     setOneColumnGrid(!oneColumnGrid)
@@ -23,15 +22,6 @@ export default function Home () {
 
   const toggleNewNote = () => {
     setAddNoteHidden(!addNoteHidden)
-  }
-
-  const makeInvisibleNote = ({ id, noteElement }) => {
-    const noteClone = noteElement.cloneNode(true)
-    noteClone.style.opacity = 0
-    const idFound = notesResponse.findIndex(el => el.id === id)
-    const newArray = [...notesResponse]
-    newArray.splice(idFound, 0, noteClone)
-    console.log(newArray)
   }
 
   return (
@@ -57,7 +47,7 @@ export default function Home () {
           </button>
           <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
             {notesResponse.map(el => {
-              return <Note makeInvisibleNote={makeInvisibleNote} key={el.id} title={el.title} noteId={el.id}>{el.bodyText}</Note>
+              return <Note key={el.id} title={el.title} noteId={el.id}>{el.bodyText}</Note>
             })}
           </NotesSection>
           <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>

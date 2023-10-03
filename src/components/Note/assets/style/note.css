@@ -1,6 +1,5 @@
 .note {
   border: 1px solid var(--border-color);
-  width: 100%;
   border-radius: 8px;
   padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
@@ -9,11 +8,8 @@
   margin-bottom: 1rem;
   user-select: none;
   background-color: #202124;
-  transition: all 0.1s ease;
   break-inside: avoid;
   position: relative;
-  top: 0; left: 0; right: 0;
-  /* overflow: hidden; */
 }
 
 .note:hover {
@@ -107,13 +103,23 @@
 
 .note.amplified-note{
   z-index: 2;
-  position: fixed;
   width: 60rem;
-  top: 10rem;
-  background-color: red;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: auto;
 }
 
 .note-text{
   margin-top: 1rem;
   word-wrap:break-word
+}
+
+.note-clone{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.note.invisible-note{
+  position: absolute;
 }
