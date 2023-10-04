@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid var(--border-color);
+  border: 1px solid red;
   border-radius: 8px;
   padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
@@ -9,11 +9,19 @@
   user-select: none;
   background-color: #202124;
   break-inside: avoid;
-  position: relative;
-  /* transition: all 5s linear; */
 }
 
-.note:hover {
+.ampliable-note{
+  border: 1px solid var(--border-color);
+  transition: all 1s linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ampliable-note:hover {
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
@@ -56,8 +64,8 @@
 .file-note-icon{
   width: 3rem;
   height: 3rem;
-  position: absolute;
-  right: 0.8rem;
+  position: relative;
+  right: -1rem;
   top: 0.8rem;
   opacity: 0;
   transition: background 0.2s ease;
@@ -84,15 +92,15 @@
     opacity: 0;
   }
   
-  .note:hover .note-buttons-container{
+  .ampliable-note:hover .note-buttons-container{
     opacity: 1;
   }
 
-  .note:hover .file-note-icon{
+  .ampliable-note:hover .file-note-icon{
     opacity: 1;
   }
   
-  .note:hover .select-note-icon{
+  .ampliable-note:hover .select-note-icon{
     opacity: 1;
   }
 
@@ -103,31 +111,22 @@
 }
 
 .note.amplified-note{
-  z-index: 2;
-  width: 100%;
+  z-index: 3;
+  left: 20px;
+  width: 100vw;
   max-width: 60rem;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
-  user-select: auto;
-  gap: 1rem;
-  padding: 2rem;
-  padding-bottom: 1rem;
+  background-color: red;
 }
 
 .note.amplified-note .file-note-icon{
-  right: 1.2rem;
-  top: 1.2rem;
+  margin-left: auto;
+  top: 0;
+  right: 0;
+  opacity: 1;
 }
 
 .note.amplified-note b{
   font-size: 2rem;
-}
-
-.note.amplified-note .file-note-icon{
-  opacity: 1;
 }
 
 .note.amplified-note .select-note-icon{
@@ -148,13 +147,10 @@
   word-wrap:break-word
 }
 
-.note-clone{
-  opacity: 0;
-  pointer-events: none;
-}
-
-.note.invisible-note{
-  position: absolute;
+.invisible-note{
+  /* border: none; */
+  color: transparent;
+  position: relative;
 }
 
 .amplified-note-background{
@@ -166,3 +162,10 @@
   width: 100%;
   height: 100vh;
 }
+
+.note-top-icons{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+

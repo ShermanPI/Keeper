@@ -68,11 +68,12 @@ export default function Home () {
               return <Note key={el.id} title={el.title} noteId={el.id}>{el.bodyText}</Note>
             })}
           </NotesSection>
+
           <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>
-            <Note title='Hola'>Note 1</Note>
-            <Note title='Hola'>s quodafsdf.klgjnd.fkjgnsldfglsdfbgkjshdbfgkjhsdfbkgsjdhbfkghsbdfkgbsdkfgbskdfhbgksdfhbgksdjfhbgksdhfbgksdjhfbgksdhfbkgshdfbkgjshdfkgjhb rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
-            <Note title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
-            <Note title='Hola'>Note 1</Note>
+            <Note key='jijija1' title='Hola'>Note 1</Note>
+            <Note key='jijija2' title='Hola'>s quodafsdf.klgjnd.fkjgnsldfglsdfbgkjshdbfgkjhsdfbkgsjdhbfkghsbdfkgbsdkfgbskdfhbgksdfhbgksdjfhbgksdhfbgksdjhfbgksdhfbkgshdfbkgjshdfkgjhb rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
+            <Note key='jijija3' title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
+            <Note key='jijija4' title='Hola'>Note 1</Note>
           </NotesSection>
         </section>
       </section>
