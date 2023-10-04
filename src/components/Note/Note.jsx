@@ -6,8 +6,13 @@ export default function Note ({ children, title, noteId }) {
   const [amplified, setAmplified] = useState(false)
   const cloneRef = useRef()
 
-  const handleClick = () => {
-    setAmplified(!amplified)
+  const handleNoteClick = (e) => {
+    e.stopPropagation()
+    setAmplified(true)
+  }
+
+  const handleBackgroundClick = () => {
+    setAmplified(false)
   }
 
   return (
@@ -36,27 +41,29 @@ export default function Note ({ children, title, noteId }) {
           </div>
         </div>
       </div>
-      <div data-note-id={noteId} className={`note ${amplified ? 'amplified-note' : ''}`} onClick={handleClick}>
-        <div className='select-note-icon'>
-          <CheckIcon />
-        </div>
-        <div className='file-note-icon'>
-          <PushPinIcon />
-        </div>
-        <b>{title}</b>
-        <p className='note-text'>{children}</p>
-        <div className='note-buttons-container'>
-          <div className='note-action-button'>
-            <PalleteIcon />
+      <div className={`note-container ${amplified ? 'amplified-note-background' : ''}`} onClick={handleBackgroundClick}>
+        <div data-note-id={noteId} className={`note ${amplified ? 'amplified-note' : ''}`} onClick={handleNoteClick}>
+          <div className='select-note-icon'>
+            <CheckIcon />
           </div>
-          <div className='note-action-button'>
-            <ImageIcon />
+          <div className='file-note-icon'>
+            <PushPinIcon />
           </div>
-          <div className='note-action-button'>
-            <InventoryIcon />
-          </div>
-          <div className='note-action-button'>
-            <DeleteIcon />
+          <b>{title}</b>
+          <p className='note-text'>{children}</p>
+          <div className='note-buttons-container'>
+            <div className='note-action-button'>
+              <PalleteIcon />
+            </div>
+            <div className='note-action-button'>
+              <ImageIcon />
+            </div>
+            <div className='note-action-button'>
+              <InventoryIcon />
+            </div>
+            <div className='note-action-button'>
+              <DeleteIcon />
+            </div>
           </div>
         </div>
       </div>

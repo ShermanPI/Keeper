@@ -128,3 +128,12 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
+.note-backcontainer{
+  background: #20212458;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  transition: all 1000000s ease;
+}

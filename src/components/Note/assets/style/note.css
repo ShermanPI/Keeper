@@ -46,7 +46,7 @@
   left: -2.4rem;
   top: -0.8rem;
   opacity: 0;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   padding: 0.1rem;
   cursor: pointer;
   position: relative;
@@ -59,14 +59,14 @@
   right: 0.8rem;
   top: 0.8rem;
   opacity: 0;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
   padding: 0.4rem;
   cursor: pointer;
+  border-radius: 3rem;
 }
 
 .file-note-icon:hover{
   background-color: #ffffff17;
-  border-radius: 3rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -103,11 +103,43 @@
 
 .note.amplified-note{
   z-index: 2;
-  width: 60rem;
+  width: 100%;
+  max-width: 60rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  user-select: auto;
+  gap: 1rem;
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+
+.note.amplified-note .file-note-icon{
+  right: 1.2rem;
+  top: 1.2rem;
+}
+
+.note.amplified-note b{
+  font-size: 2rem;
+}
+
+.note.amplified-note .file-note-icon{
+  opacity: 1;
+}
+
+.note.amplified-note .select-note-icon{
+  pointer-events: none;
+}
+
+.note.amplified-note .note-buttons-container{
+  opacity: 1;
+}
+
+  
+.note.amplified-note .select-note-icon{
+  display: none;
 }
 
 .note-text{
@@ -122,4 +154,14 @@
 
 .note.invisible-note{
   position: absolute;
+}
+
+.amplified-note-background{
+  z-index: 2;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: #202124ae;
+  width: 100%;
+  height: 100vh;
 }
