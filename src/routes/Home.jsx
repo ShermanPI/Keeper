@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import notesResponse from '../mock/with-response.json'
+import { PushPinIcon, PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../components/Note/assets/images/Icons'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -28,9 +29,26 @@ export default function Home () {
     <div className='home-container'>
 
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
-        <div className='new-note'>
-          <h1>Title</h1>
-          <p>This is the notes body</p>
+        <div className='new-note' onClick={(e) => e.stopPropagation()}>
+          <div className='file-note-icon'>
+            <PushPinIcon />
+          </div>
+          <b>Hola</b>
+          <p className='note-text'>jijija</p>
+          <div className='new-note-buttons-container'>
+            <div className='note-action-button'>
+              <PalleteIcon />
+            </div>
+            <div className='note-action-button'>
+              <ImageIcon />
+            </div>
+            <div className='note-action-button'>
+              <InventoryIcon />
+            </div>
+            <div className='note-action-button'>
+              <DeleteIcon />
+            </div>
+          </div>
         </div>
       </div>
 

@@ -103,12 +103,12 @@ body {
 }
 
 .new-note-container{
-  /* opacity: 0; */
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff42;
-  top: 0; ;left: 0; right: 0;bottom: 0;
+  background-color: #202124ae;
+  top: 0; left: 0; right: 0;bottom: 0;
   position: fixed;
   z-index: 2;
 }
@@ -122,6 +122,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  width: 100%;
+  max-width: 60rem;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  user-select: auto;
+  padding-bottom: 1rem;
+  border-radius: 0.8rem;
 }
 
 .new-note-container.hidden{
@@ -136,4 +143,15 @@ body {
   position: fixed;
   z-index: 1;
   transition: all 1000000s ease;
+}
+
+.new-note-buttons-container{
+  margin-top: 1rem;
+  display: flex;
+  margin-left: -1rem;
+}
+
+.new-note-buttons-container svg{
+  fill: #979899;
+  width: 1.8rem;
 }
