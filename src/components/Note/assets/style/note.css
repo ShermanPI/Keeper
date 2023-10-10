@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid red;
+  border: 1px solid green;
   border-radius: 8px;
   padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
@@ -13,23 +13,32 @@
 
 .ampliable-note{
   border: 1px solid var(--border-color);
-  transition: all 1s linear;
   position: absolute;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
+  transition: all 0.4s ease;
 }
 
 .ampliable-note:hover {
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
+.amplified-note{
+  z-index: 3;
+  /* left: 20px; */
+  width: 60rem;
+  height: auto;
+  max-width: 60rem;
+  background-color: red;
+  margin: auto;
+  height: auto;
+  height: 60vh;
+}
+
 .note-buttons-container{
   display: none;
   margin-left: -1rem;
-  transition: all 0.2s ease;
-
+  /* transition: all 0.2s ease; */
 }
 
 .note-action-button{
@@ -55,7 +64,7 @@
   left: -2.4rem;
   top: -0.8rem;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  /* transition: opacity 0.2s ease; */
   padding: 0.1rem;
   cursor: pointer;
   position: relative;
@@ -68,7 +77,7 @@
   right: -1rem;
   top: 0.8rem;
   opacity: 0;
-  transition: background 0.2s ease;
+  /* transition: background 0.2s ease; */
   padding: 0.4rem;
   cursor: pointer;
   border-radius: 3rem;
@@ -110,15 +119,7 @@
   }
 }
 
-.note.amplified-note{
-  z-index: 3;
-  left: 20px;
-  width: 100vw;
-  max-width: 60rem;
-  background-color: red;
-}
-
-.note.amplified-note .file-note-icon{
+/* .note.amplified-note .file-note-icon{
   margin-left: auto;
   top: 0;
   right: 0;
@@ -135,12 +136,12 @@
 
 .note.amplified-note .note-buttons-container{
   opacity: 1;
-}
+} */
 
-  
+/*   
 .note.amplified-note .select-note-icon{
   display: none;
-}
+} */
 
 .note-text{
   margin-top: 1rem;
