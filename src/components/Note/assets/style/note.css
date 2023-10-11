@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid green;
+  border: 1px solid;
   border-radius: 8px;
   padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
@@ -12,11 +12,17 @@
 }
 
 .ampliable-note{
-  border: 1px solid var(--border-color);
+  border: 1px solid red;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: all 0.4s ease;
+  left: -1px;
+  top: -1px;
+
+  /*if you want to make the animation activate these properties but need to change the mansory notes layout 
+  for one made with javasctip and display flex and not columns, because columns make the notes transition slow 
+  if they were rendered by react, dont know why */
+  /* transition: all 0.2s ease; */
 }
 
 .ampliable-note:hover {
@@ -32,7 +38,8 @@
   background-color: red;
   margin: auto;
   height: auto;
-  height: 60vh;
+  position: fixed;
+  /* height: 60vh; */
 }
 
 .note-buttons-container{
@@ -119,7 +126,7 @@
   }
 }
 
-/* .note.amplified-note .file-note-icon{
+.note.amplified-note .file-note-icon{
   margin-left: auto;
   top: 0;
   right: 0;
@@ -136,12 +143,12 @@
 
 .note.amplified-note .note-buttons-container{
   opacity: 1;
-} */
+}
 
-/*   
+  
 .note.amplified-note .select-note-icon{
   display: none;
-} */
+}
 
 .note-text{
   margin-top: 1rem;

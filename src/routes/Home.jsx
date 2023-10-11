@@ -5,10 +5,12 @@ import Note from '../components/Note/Note'
 import React, { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
-import notesResponse from '../mock/with-response.json'
+import { notesResponse } from '../mock/with-response'
 import { PushPinIcon, PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../components/Note/assets/images/Icons'
 
 export default function Home () {
+  console.log('render de home 🛖')
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
@@ -64,21 +66,21 @@ export default function Home () {
             Create Note
           </button>
           <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
+            <Note key='jijija3294' title='Hola'>Note 1</Note>
             <Note key='jijija1' title='Hola'>Note 1</Note>
             <Note key='jijija2' title='Hola'>s quodafsdf.klgjnd.fkjgnsldfglsdfbgkjshdbfgkjhsdfbkgsjdhbfkghsbdfkgbsdkfgbskdfhbgksdfhbgksdjfhbgksdhfbgksdjhfbgksdhfbkgshdfbkgjshdfkgjhb rem omnis esse non explicabo ratione fugiat debitis unde? Placeat pariatur animi facilis fugiat sed, nesciunt vitae accusamus tempora.</Note>
-            <Note key='jijija3' title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
             <Note key='jijija4' title='Hola'>Note 1</Note>
+            <Note key='jijija3' title='Hola'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis quo </Note>
           </NotesSection>
 
           <NotesSection title='Others' columns={oneColumnGrid ? 'one-column' : ''}>
-            <Note key='jijija3294' title='Hola'>Note 1</Note>
-            {notesResponse.map(el => {
-              return <Note key={el.id} title={el.title}>{el.bodyText}</Note>
+            {notesResponse.map(function hola (el) {
+              return (<Note key={el.id} title={el.title}>{el.bodyText}</Note>)
             })}
-
           </NotesSection>
         </section>
       </section>
+
     </div>
   )
 }

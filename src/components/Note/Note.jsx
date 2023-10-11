@@ -3,6 +3,8 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIc
 import './assets/style/note.css'
 
 export default function Note ({ children, title }) {
+  console.log('render de note ✅')
+
   const [amplified, setAmplified] = useState(false)
   const cloneRef = useRef()
 
