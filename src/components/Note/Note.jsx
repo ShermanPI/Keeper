@@ -3,8 +3,6 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIc
 import './assets/style/note.css'
 
 export default function Note ({ children, title }) {
-  console.log('render de note ✅')
-
   const [amplified, setAmplified] = useState(false)
   const cloneRef = useRef()
 
@@ -28,7 +26,7 @@ export default function Note ({ children, title }) {
             <PushPinIcon />
           </div>
         </div>
-        <b>{title}</b>
+        <input type='text' defaultValue={title} className='note-title' placeholder='Title' />
         <p className='note-text'>{children}</p>
         <div className='note-buttons-container'>
           <div className='note-action-button'>
@@ -55,7 +53,7 @@ export default function Note ({ children, title }) {
               <PushPinIcon />
             </div>
           </div>
-          <b>{title}</b>
+          <input type='text' defaultValue={title} className='note-title' placeholder='Title' />
           <p className='note-text'>{children}</p>
           <div className='note-buttons-container'>
             <div className='note-action-button'>

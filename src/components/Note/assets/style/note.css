@@ -130,7 +130,7 @@
 
 .note.amplified-note .file-note-icon{
   margin-left: auto;
-  top: 0;
+  top: 1rem;
   right: 0;
   opacity: 1;
 }
@@ -179,3 +179,18 @@
   width: 100%;
 }
 
+.invisible-note.note-title{
+  color: transparent;
+}
+
+.note-title{
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.note-title:focus{
+  outline: none;
+}

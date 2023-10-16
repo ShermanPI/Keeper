@@ -9,8 +9,6 @@ import { notesResponse } from '../mock/with-response'
 import { PushPinIcon, PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../components/Note/assets/images/Icons'
 
 export default function Home () {
-  console.log('render de home 🛖')
-
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
