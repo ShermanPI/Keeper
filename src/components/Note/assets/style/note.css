@@ -9,7 +9,11 @@
   user-select: none;
   background-color: #202124;
   break-inside: avoid;
-  
+  cursor: auto;
+}
+
+.note input[type="text"]{
+  cursor: default;
 }
 
 .ampliable-note{
@@ -43,6 +47,11 @@
   transform: translate(-50%, -50%);
   position: fixed;
 }
+
+.amplified-note input[type="text"]{
+  cursor: text;
+}
+
 
 .note-buttons-container{
   display: none;
@@ -154,13 +163,21 @@
 
 .note-text{
   margin-top: 1rem;
-  word-wrap:break-word
+  word-wrap:break-word;
+  font-size: 1.6rem;
+}
+
+.note-text:focus{
+  outline: none;
 }
 
 .invisible-note{
-  /* border: none; */
   color: transparent;
   position: relative;
+}
+
+.invisible-note > input{
+  color: transparent;
 }
 
 .amplified-note-background{
@@ -177,10 +194,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.invisible-note.note-title{
-  color: transparent;
 }
 
 .note-title{
