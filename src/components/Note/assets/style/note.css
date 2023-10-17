@@ -16,6 +16,16 @@
   cursor: default;
 }
 
+.note textarea{
+  cursor: default;
+  resize: none;
+  height: ;
+}
+
+.note textarea::-webkit-scrollbar{
+  width: 0px;
+}
+
 .ampliable-note{
   border: 1px solid var(--border-color);
   width: calc(100% + 2px);
@@ -49,6 +59,10 @@
 }
 
 .amplified-note input[type="text"]{
+  cursor: text;
+}
+
+.amplified-note textarea{
   cursor: text;
 }
 
@@ -178,7 +192,16 @@
 
 .invisible-note > input{
   color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }
+
+.invisible-note > textarea{
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+}
+
 
 .amplified-note-background{
   z-index: 2;
