@@ -1,32 +1,24 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 
-export default function NoteForm ({ className, children, title, noteBody }) {
+export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
   const [amplified, setAmplified] = useState(false)
-  const [textareaHeight, setTextareaHeight] = useState('auto')
-  console.log('render')
+  const noteTextRef = useRef()
 
   const handleNoteClick = (e) => {
     e.stopPropagation()
     setAmplified(true)
   }
 
-  const handleBackgroundClick = (e) => {
+  const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-  }
-
-  const changeTextAreaHeight = (e) => {
-    const newHeight = `${e.target.scrollHeight}px`
-    if (newHeight !== textareaHeight) {
-      setTextareaHeight(`${newHeight}`)
-      console.log(newHeight, textareaHeight)
-    }
+    onSave({ noteText: noteTextRef.current.textContent })
   }
 
   return (
     <>
-      <form className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
+      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
         <div className='note-top-icons'>
           <div className='select-note-icon'>
             <CheckIcon />
@@ -36,8 +28,12 @@ export default function NoteForm ({ className, children, title, noteBody }) {
           </div>
         </div>
 
-        <input type='text' name='' defaultValue={title} className='note-title' placeholder='Title' />
-        <textarea className='note-text' style={{ height: textareaHeight }} defaultValue={noteBody} placeholder='Note' onKeyDown={changeTextAreaHeight} />
+        <input type='text' name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
+        <div className='note-text' name='note-text' placeholder='Note'>
+          <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning>
+            {noteBody}
+          </p>
+        </div>
 
         <div className='note-buttons-container'>
           <div className='note-action-button'>
@@ -54,8 +50,8 @@ export default function NoteForm ({ className, children, title, noteBody }) {
           </div>
         </div>
         {children}
-      </form>
-      <div className={`note-container ${amplified ? 'amplified-note-background' : ''}`} onClick={handleBackgroundClick} />
+      </div>
+      <div className={`note-container ${amplified ? 'amplified-note-background' : ''}`} onClick={handleCloseAndSave} />
     </>
   )
 }
