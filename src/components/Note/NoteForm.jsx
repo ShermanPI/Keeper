@@ -7,13 +7,16 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
   const handleNoteClick = (e) => {
     e.stopPropagation()
-    setAmplified(true)
+    if (className !== 'invisible-note') {
+      setAmplified(true)
+    }
+    console.log('click to a nota ✅✅✅', noteTextRef.current.parentElement.parentElement)
   }
 
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-    onSave(e, { noteText: noteTextRef.current.textContent })
+    onSave({ noteText: noteTextRef.current.textContent })
   }
 
   return (
@@ -48,6 +51,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           <div className='note-action-button'>
             <DeleteIcon />
           </div>
+          <button onClick={handleCloseAndSave} className='close-note-btn'>Close</button>
         </div>
         {children}
       </div>

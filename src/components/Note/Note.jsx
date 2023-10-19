@@ -5,9 +5,7 @@ import NoteForm from './NoteForm'
 export default function Note ({ children, title }) {
   const [noteText, setNoteText] = useState(children)
 
-  const saveNote = (e, { noteText }) => {
-    console.log(e.target)
-    e.stopPropagation()
+  const saveNote = ({ noteText }) => {
     setNoteText(noteText)
   }
 

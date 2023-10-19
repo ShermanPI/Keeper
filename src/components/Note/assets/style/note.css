@@ -13,6 +13,30 @@
   max-height: 50vh;
 }
 
+.close-note-btn{
+  cursor: pointer;
+  background-color: transparent;
+  margin-left: auto;
+  color: #ffffffd0;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+  padding-inline: 2.4rem;
+  font-weight: 500;
+}
+
+.close-note-btn:hover{
+  background-color: #ffffff15;
+}
+
+.ampliable-note .close-note-btn{
+  display: none;
+}
+
+.amplified-note .close-note-btn{
+  display: block;
+}
+
 .note p{
   cursor: default;
 }
@@ -58,6 +82,7 @@
 .amplified-note{
   z-index: 3;
   padding: 2rem;
+  padding-bottom: 1rem;
   width: 100%;
   height: auto;
   max-width: 60rem;
@@ -208,7 +233,6 @@
   color: transparent;
   position: relative;
 }
-
 .invisible-note > input{
   color: transparent;
   background-color: transparent;
