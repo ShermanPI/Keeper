@@ -13,7 +13,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-    onSave({ noteText: noteTextRef.current.textContent })
+    onSave(e, { noteText: noteTextRef.current.textContent })
   }
 
   return (
@@ -51,7 +51,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
         </div>
         {children}
       </div>
-      <div className={`note-container ${amplified ? 'amplified-note-background' : ''}`} onClick={handleCloseAndSave} />
+      {amplified ? <div className='amplified-note-background' onClick={handleCloseAndSave} /> : ''}
     </>
   )
 }
