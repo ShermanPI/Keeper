@@ -35,7 +35,7 @@ export default function Home () {
     <div className='home-container'>
 
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
-        <NewNote />
+        <NewNote closeHandler={toggleNewNote} />
       </div>
 
       <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
