@@ -1,6 +1,7 @@
 import './assets/style/noteSection.css'
+import { memo } from 'react'
 
-export default function NotesSection ({ children, title, columns }) {
+function NotesSection ({ children, title, columns }) {
   return (
     <section className='note-section'>
       <h3 className='section-title'>
@@ -12,3 +13,5 @@ export default function NotesSection ({ children, title, columns }) {
     </section>
   )
 }
+
+export default memo(NotesSection)

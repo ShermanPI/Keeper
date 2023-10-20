@@ -25,9 +25,6 @@
   columns: 1;
 }
 
-.notes-container > div {
-  break-inside: avoid;
-}
 
 .section-title {
   letter-spacing: 0.2rem;
