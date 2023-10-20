@@ -2,13 +2,19 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import { notesResponse } from '../mock/with-response'
-import { PushPinIcon, PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../components/Note/assets/images/Icons'
+import { getNotes } from '../services/getNotes'
+import NewNote from '../components/NewNote/NewNote'
 
 export default function Home () {
+  useEffect(() => {
+    getNotes()
+      .then(res => console.log(res))
+  }, [])
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
@@ -29,27 +35,7 @@ export default function Home () {
     <div className='home-container'>
 
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
-        <div className='new-note' onClick={(e) => e.stopPropagation()}>
-          <div className='file-note-icon'>
-            <PushPinIcon />
-          </div>
-          <b>Hola</b>
-          <p className='note-text'>jijija</p>
-          <div className='new-note-buttons-container'>
-            <div className='note-action-button'>
-              <PalleteIcon />
-            </div>
-            <div className='note-action-button'>
-              <ImageIcon />
-            </div>
-            <div className='note-action-button'>
-              <InventoryIcon />
-            </div>
-            <div className='note-action-button'>
-              <DeleteIcon />
-            </div>
-          </div>
-        </div>
+        <NewNote />
       </div>
 
       <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
