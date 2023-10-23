@@ -1,10 +1,17 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
+import { usePlaceholder } from '../../hooks/usePlaceholder'
 
 export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
   const [amplified, setAmplified] = useState(false)
   const noteTextRef = useRef()
-  const [isUserTyping, setIsUserTyping] = useState(false)
+  const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
+  const isFirstRenderRef = useRef(true)
+
+  console.log(isFirstRenderRef.current)
+  useEffect(() => {
+    isFirstRenderRef.current = false
+  }, [])
 
   const handleNoteClick = (e) => {
     e.stopPropagation()
@@ -17,17 +24,8 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-    setIsUserTyping(false)
+    // setIsUserTyping(false)
     onSave({ noteText: noteTextRef.current.textContent })
-  }
-
-  const handleNotePlaceholder = () => {
-    // even this executes a lot react doesnt make the render of setIsUserTyping cause the new state is the same as the last state
-    if (!noteTextRef.current.textContent) {
-      setIsUserTyping(false)
-    } else {
-      setIsUserTyping(true)
-    }
   }
 
   return (
@@ -44,7 +42,10 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
         <input type='text' name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
         <div className='note-text' name='note-text'>
-          <div className='note-text-placeholder'>{(noteBody || isUserTyping) ? '' : 'Empty Note...'}</div>
+          <div className='note-text-placeholder'>{(isUserTyping) || !isFirstRenderRef.current
+            ? ''
+            : 'Empty Note...'}
+          </div>
           <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder}>
             {noteBody}
           </p>

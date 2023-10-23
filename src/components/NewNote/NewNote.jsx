@@ -1,18 +1,10 @@
 import { PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../Note/assets/images/Icons'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
+import { usePlaceholder } from '../../hooks/usePlaceholder'
 
 export default function NewNote ({ closeHandler }) {
   const noteTextRef = useRef()
-  const [isUserTyping, setIsUserTyping] = useState(false)
-
-  const handleNotePlaceholder = () => {
-    // even this executes a lot react doesnt make the render of setIsUserTyping cause the new state is the same as the last state
-    if (!noteTextRef.current.textContent) {
-      setIsUserTyping(false)
-    } else {
-      setIsUserTyping(true)
-    }
-  }
+  const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
 
   const closeAndSave = () => {
     closeHandler()
