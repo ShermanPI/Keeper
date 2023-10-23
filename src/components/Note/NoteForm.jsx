@@ -8,7 +8,6 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
   const isFirstRenderRef = useRef(true)
 
-  console.log(isFirstRenderRef.current)
   useEffect(() => {
     isFirstRenderRef.current = false
   }, [])
@@ -42,10 +41,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
         <input type='text' name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
         <div className='note-text' name='note-text'>
-          <div className='note-text-placeholder'>{(isUserTyping) || !isFirstRenderRef.current
-            ? ''
-            : 'Empty Note...'}
-          </div>
+          {!isFirstRenderRef.current && <div className='note-text-placeholder'>{noteTextRef.current.textContent || isUserTyping ? '' : 'Empty Note...'}</div>}
           <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder}>
             {noteBody}
           </p>
