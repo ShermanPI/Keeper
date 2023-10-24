@@ -1,16 +1,15 @@
 import { PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../Note/assets/images/Icons'
 import { useRef } from 'react'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
-import sendNewNote from '../../services/sendNewNote'
 
-export default function NewNote ({ closeHandler }) {
+export default function NewNote ({ closeHandler, addNote }) {
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
 
   const closeAndSave = () => {
     closeHandler()
-    sendNewNote({ title: noteTitleRef.current.value, text: noteTextRef.current.textContent })
+    addNote({ title: noteTitleRef.current.value, bodyText: noteTextRef.current.textContent })
   }
 
   return (

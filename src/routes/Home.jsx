@@ -2,26 +2,19 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 // import { notesResponse } from '../mock/with-response'
-import { getNotes } from '../services/getNotes'
+
 import NewNote from '../components/NewNote/NewNote'
+import { useNotes } from '../hooks/useNotes'
 
 export default function Home () {
-  const [notes, setNotes] = useState([])
-
-  useEffect(() => {
-    getNotes()
-      .then(res => {
-        setNotes(res)
-      })
-  }, [])
-
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
+  const { notes, addNewNote } = useNotes()
 
   const gridHandler = () => {
     setOneColumnGrid(!oneColumnGrid)
@@ -39,7 +32,7 @@ export default function Home () {
     <div className='home-container'>
 
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
-        <NewNote closeHandler={toggleNewNote} />
+        <NewNote closeHandler={toggleNewNote} addNote={addNewNote} />
       </div>
 
       <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
