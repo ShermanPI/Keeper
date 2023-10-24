@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
+// import { sendNewNote } from '../../services/sendNewNote.js'
 
 export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
   const [amplified, setAmplified] = useState(false)
   const noteTextRef = useRef()
+  const noteTitleRef = useRef()
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
   const isFirstRenderRef = useRef(true)
 
@@ -17,13 +19,11 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     if (className !== 'invisible-note') {
       setAmplified(true)
     }
-    // console.log('click to a note ✅', noteTextRef.current.parentElement.parentElement)
   }
 
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-    // setIsUserTyping(false)
     onSave({ noteText: noteTextRef.current.textContent })
   }
 
@@ -39,7 +39,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           </div>
         </div>
 
-        <input type='text' name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
+        <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
         <div className='note-text' name='note-text'>
           {!isFirstRenderRef.current && <div className='note-text-placeholder'>{noteTextRef.current.textContent || isUserTyping ? '' : 'Empty Note...'}</div>}
           <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder}>

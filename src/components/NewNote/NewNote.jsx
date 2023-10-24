@@ -1,18 +1,21 @@
 import { PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../Note/assets/images/Icons'
 import { useRef } from 'react'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
+import sendNewNote from '../../services/sendNewNote'
 
 export default function NewNote ({ closeHandler }) {
   const noteTextRef = useRef()
+  const noteTitleRef = useRef()
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
 
   const closeAndSave = () => {
     closeHandler()
+    sendNewNote({ title: noteTitleRef.current.value, text: noteTextRef.current.textContent })
   }
 
   return (
     <div className='new-note' onClick={(e) => e.stopPropagation()}>
-      <input type='text' name='note-title' className='note-title' placeholder='Title' />
+      <input type='text' ref={noteTitleRef} name='note-title' className='note-title' placeholder='Title' />
       <div className='note-text' name='note-text'>
         <div className='note-text-placeholder'>{(isUserTyping) ? '' : 'Empty Note...'}</div>
         <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder} />
