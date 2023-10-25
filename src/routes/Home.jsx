@@ -48,7 +48,7 @@ export default function Home () {
           </button>
           <NotesSection title='Pinned' columns={oneColumnGrid ? 'one-column' : ''}>
             {notes.map(function hola (el) {
-              return (<Note key={el.id} title={el.title}>{el.bodyText}</Note>)
+              return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
             })}
           </NotesSection>
 

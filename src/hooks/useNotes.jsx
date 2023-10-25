@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getNotes } from '../services/getNotes'
-import sendNewNote from '../services/sendNewNote'
+import sendNewNote from '../services/createNewNote'
 
 export function useNotes () {
   const [notes, setNotes] = useState([])

@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './assets/style/note.css'
 import NoteForm from './NoteForm'
+import updateNote from '../../services/updateNote'
 
-export default function Note ({ children, title }) {
-  const [noteText, setNoteText] = useState(children)
+export default function Note ({ children, title, id }) {
+  const [textContent, setNoteText] = useState({ title, text: children })
+  const noteContentRef = useRef(textContent)
 
-  const saveNote = ({ noteText }) => {
-    setNoteText(noteText)
+  const saveNote = async ({ title, text }) => {
+    if (!(JSON.stringify(noteContentRef.current) === JSON.stringify({ title, text }))) {
+      const editedNote = await updateNote({ id, title, text })
+      setNoteText(editedNote[0])
+      noteContentRef.current = { title, text }
+    }
   }
 
   return (
-    <NoteForm className='invisible-note' title={title} noteBody={noteText}>
-      <NoteForm className='ampliable-note' title={title} noteBody={noteText} onSave={saveNote} />
+    <NoteForm className='invisible-note' title={textContent.title} noteBody={textContent.text}>
+      <NoteForm className='ampliable-note' title={textContent.title} noteBody={textContent.text} onSave={saveNote} />
     </NoteForm>
   )
 }

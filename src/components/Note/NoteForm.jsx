@@ -24,7 +24,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
     setAmplified(false)
-    onSave({ noteText: noteTextRef.current.textContent })
+    onSave({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
   }
 
   return (

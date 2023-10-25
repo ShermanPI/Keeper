@@ -14,7 +14,7 @@ export default function NewNote ({ closeHandler, addNote }) {
 
   return (
     <div className='new-note' onClick={(e) => e.stopPropagation()}>
-      <input type='text' ref={noteTitleRef} name='note-title' className='note-title' placeholder='Title' />
+      <input type='text' ref={noteTitleRef} name='note-title' className='note-title' placeholder='Title' autoComplete='false' />
       <div className='note-text' name='note-text'>
         <div className='note-text-placeholder'>{(isUserTyping) ? '' : 'Empty Note...'}</div>
         <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder} />
