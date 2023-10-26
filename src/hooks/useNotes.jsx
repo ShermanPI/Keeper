@@ -20,7 +20,7 @@ export function useNotes () {
       newNotes.push(newNote)
       setNotes(newNotes)
     } catch (err) {
-      console.err(err)
+      console.error(err)
     }
   }
 

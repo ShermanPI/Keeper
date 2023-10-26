@@ -2,10 +2,12 @@ import { supabase } from './clients/supabaseClient'
 
 export async function getNotes () {
   try {
-    const { data: note } = await supabase
+    const { data: notes } = await supabase
       .from('note')
       .select('*')
-    return note.map(el => {
+
+    console.log(notes)
+    return notes.map(el => {
       return {
         id: el.id,
         title: el.title,
@@ -13,6 +15,7 @@ export async function getNotes () {
       }
     })
   } catch (err) {
+    console.log(err.message)
     throw Error('An error ocurred in get notes request ', err.message)
   }
 }
