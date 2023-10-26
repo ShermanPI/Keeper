@@ -1,0 +1,96 @@
+.Content{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--light-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: flex-end;
+    margin: 0;
+}
+
+.float{
+    position: absolute;
+}
+
+.Login{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+    border-radius: 1rem;
+    padding: 1rem;
+    
+}
+
+
+.Login__logo{
+    margin-top: 2rem;
+}
+
+.Login__logo--img{
+    max-width: 6.4rem;
+    max-height: 6.4rem;
+   
+}
+
+.Design{
+    display: none;
+}
+
+
+
+
+@media screen and (min-width: 765px) {
+    .Login{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .Login__title--h1{
+        font-size: 3.8rem;
+    }
+}
+
+
+@media screen and (min-width: 1100px) {
+    .Content{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .Login{
+        width: 57.4rem;
+        height: 78.6rem;
+        padding:0 4rem ;
+        margin-right: 2rem;
+    }
+
+
+    .Login__title--h1{
+        font-size: 3.8rem;
+    }
+
+    .Design{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+ 
+}
+
+
+
+
+/* @keyframes cursor {
+    50%{border-color: transparent;}
+} */
+
+
+
