@@ -219,6 +219,19 @@
   overflow-y: hidden;
   font-size: 1.6rem;
   padding-right: 1rem;
+  position: relative;
+}
+
+.note-text-placeholder, .note-text-placeholder {
+  color: #ffffff74;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.invisible-note > .note-text >.note-text-placeholder{
+  color: transparent;
 }
 
 .amplified-note .note-text{
