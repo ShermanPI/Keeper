@@ -5,8 +5,6 @@ import Note from '../components/Note/Note'
 import React, { useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
-// import { notesResponse } from '../mock/with-response'
-
 import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
 
