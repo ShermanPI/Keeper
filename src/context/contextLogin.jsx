@@ -25,9 +25,6 @@ const ContextSession = ({ children }) => {
       if (error) setSignUpError(error.message)
 
       if (data && !error) {
-        console.log('Registro exitoso')
-        // Obtener los datos relevantes del usuario registrado
-
         // Llamar a la función addUser con los datos del usuario
         await addUser(data.user.email, fullName, data.user.id)
       }
@@ -42,12 +39,9 @@ const ContextSession = ({ children }) => {
         provider: 'google'
       })
 
-      if (error) { console.log(error) }
+      if (error) { console.error(error) }
 
       if (data && !error) {
-        console.log('Registro exitoso')
-        // Obtener los datos relevantes del usuario registrado
-
         // Llamar a la función addUser con los datos del usuario
         await addUser(data.user.email, data.user.name, data.user.id)
       }
@@ -64,13 +58,13 @@ const ContextSession = ({ children }) => {
       })
       if (error) { setSignInError(error.message) }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 
   const signOut = async () => {
     const { error } = await supabase.auth.signOut()
-    if (error) { console.log(error) }
+    if (error) { console.error(error) }
   }
 
   const addUser = async (email, fullName, id) => {
@@ -80,9 +74,9 @@ const ContextSession = ({ children }) => {
         .insert([
           { id, full_name: fullName, email }
         ])
-      if (error) { console.log(error) }
+      if (error) { console.error(error) }
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
 

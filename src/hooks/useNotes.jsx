@@ -15,7 +15,6 @@ export function useNotes () {
   const addNewNote = async ({ title, bodyText }) => {
     try {
       const newNote = await sendNewNote({ title, text: bodyText })
-      console.log(newNote)
       const newNotes = [...notes]
       newNotes.push(newNote)
       setNotes(newNotes)
