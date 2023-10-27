@@ -2,17 +2,23 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
+import { session } from '../context/contextLogin'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
   const [oneColumnGrid, setOneColumnGrid] = useState(false)
   const [addNoteHidden, setAddNoteHidden] = useState(true)
   const { notes, addNewNote } = useNotes()
+  const { loggedUser } = useContext(session)
+
+  useEffect(() => {
+    console.log(loggedUser, 'desde el useEffect')
+  }, [loggedUser])
 
   const gridHandler = () => {
     setOneColumnGrid(!oneColumnGrid)

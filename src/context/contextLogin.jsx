@@ -1,14 +1,21 @@
 import { createContext, useEffect, useState } from 'react'
 import { supabase } from '../services/clients/supabaseClient'
 import { useNavigate } from 'react-router-dom'
+import { getLoggedUser } from '../services/getLoggedUSer'
 
 const session = createContext()
 
 const ContextSession = ({ children }) => {
   const [signUpError, setSignUpError] = useState(false)
   const [signInError, setSignInError] = useState(false)
+  const [loggedUser, setLoggedUser] = useState(undefined)
   const Navigate = useNavigate()
   useEffect(() => {
+    (async function () {
+      const user = await getLoggedUser()
+      setLoggedUser(user)
+    })()
+
     supabase.auth.onAuthStateChange((event, session) => {
       if (session) { Navigate('/home') }
       if (!session) { Navigate('/') }
@@ -81,7 +88,7 @@ const ContextSession = ({ children }) => {
   }
 
   return (
-    <session.Provider value={{ createSession, initSession, addUser, signOut, sigInGoogle, signUpError, signInError }}>
+    <session.Provider value={{ createSession, initSession, addUser, signOut, sigInGoogle, signUpError, signInError, loggedUser }}>
       {children}
     </session.Provider>
   )

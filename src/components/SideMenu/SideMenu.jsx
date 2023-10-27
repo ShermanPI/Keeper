@@ -5,7 +5,7 @@ import { Inventory, Ligthbulb, PaperBin, Tags } from '../Category/assets/images/
 
 export default function SideMenu ({ menuOpen, menuOpenHandler }) {
   const [selectedLabel, setSelectedLabel] = useState('category-1')
-  const hiddenClass = menuOpen ? '' : 'hidden'
+  const hiddenClass = menuOpen ? 'hidden' : ''
 
   return (
     <section className={`categories-menu ${hiddenClass}`} onClick={menuOpenHandler}>
