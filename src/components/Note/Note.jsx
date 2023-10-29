@@ -10,7 +10,6 @@ export default function Note ({ children, title, id }) {
   const saveNote = async ({ title, text }) => {
     if (!(JSON.stringify(noteContentRef.current) === JSON.stringify({ title, text }))) {
       const editedNote = await updateNote({ id, title, text })
-      console.log(editedNote)
       setNoteText(editedNote[0])
       noteContentRef.current = { title, text }
     }

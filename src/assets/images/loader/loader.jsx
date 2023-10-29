@@ -1,6 +1,6 @@
-import 'loader.css'
+import './loader.css'
 
-export function loader () {
+export function Loader () {
   return (
     <div class='loader'>
       <li class='dots' id='dot-1' />

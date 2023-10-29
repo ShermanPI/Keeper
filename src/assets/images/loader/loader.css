@@ -1,14 +1,14 @@
 .loader {
     display: flex;
-    gap: 0.6em;
+    gap: 0.3rem;
     list-style: none;
   }
   
   .dots {
-    width: 15px;
-    height: 15px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
-    background: red;
+    background-color: var(--primary-color);
   }
   
   #dot-1 {
