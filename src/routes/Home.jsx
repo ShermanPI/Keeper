@@ -7,6 +7,7 @@ import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
+import UserSessionCard from '../components/UserSessionCard/UserSessionCard'
 
 export default function Home () {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -28,6 +29,7 @@ export default function Home () {
 
   return (
     <div className='home-container'>
+
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
         <NewNote closeHandler={toggleNewNote} addNote={addNewNote} />
       </div>
@@ -35,6 +37,7 @@ export default function Home () {
       <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
       <section className='dashboard-container'>
         <SideMenu menuOpen={menuOpen} menuOpenHandler={menuOpenHandler} />
+        <UserSessionCard />
 
         <section className={`all-notes-container ${oneColumnGrid ? 'one-column-width' : ''}`}>
           <button className='add-note-btn' onClick={toggleNewNote}>

@@ -1,7 +1,23 @@
-export default function UserSessionCard () {
+import './assets/UserSessionCard.css'
+
+export default function UserSessionCard ({ user }) {
   return (
-    <div>
-      hola esto es el div de session para el usuario poder salir de session y todo eso
+    <div className='session-info-card'>
+      <div className='email-container'>
+        <p className='user-email'>Shermanperez0@gmail.com</p>
+        <button className='close-user-info icon'>
+          x
+        </button>
+      </div>
+      <div className='user-profile-picture'>
+        <img src='' alt='' />
+      </div>
+      <div className='user-welcome'>
+        <h2>Welcome, Sherman!</h2>
+      </div>
+      <button className='close-session'>
+        Close Session
+      </button>
     </div>
   )
 }

@@ -1,0 +1,60 @@
+.session-info-card{
+    background-color: #282a2c;
+    color: white;   
+    position: absolute;
+    right: 2.8rem;
+    z-index: 999;
+    padding: 2rem;
+    border-radius: 3rem;
+    width: 100%;
+    max-width: 40rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.email-container{ display: flex;}
+
+.user-email{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.close-user-info{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0.2rem;
+    top: 1.4rem;
+}
+
+.user-profile-picture{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    background-color: red;
+}
+.close-session{
+    width: 70%;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: var(--light-color);
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--light-color);
+}
+
+.close-session:hover{
+    background-color: #ccc6e123;
+}
+
+.user-welcome h2{
+    font-size: 2rem;
+    font-weight: 500;
+}
