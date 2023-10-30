@@ -11,7 +11,9 @@ export default function NewNote ({ closeHandler, addNote }) {
 
   const closeAndSave = useCallback(() => {
     closeHandler()
-    addNote({ title: noteTitleRef.current.value, bodyText: noteTextRef.current.textContent, userId: loggedUser.id })
+    if (loggedUser) {
+      addNote({ title: noteTitleRef.current.value, bodyText: noteTextRef.current.textContent, userId: loggedUser.id })
+    }
   }, [loggedUser])
 
   return (

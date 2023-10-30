@@ -1,10 +1,10 @@
 import { supabase } from './clients/supabaseClient'
 
-export default async function sendNewNote ({ title, text, backgroundColor = '#ccc6e19d' }) {
+export default async function createNewNote ({ title, text, backgroundColor = '#ccc6e19d', userId }) {
   try {
     const { data } = await supabase
       .from('note')
-      .insert({ title, text, background_color: backgroundColor })
+      .insert({ title, text, background_color: backgroundColor, user_id: userId })
       .select()
 
     const newNote = data[0]

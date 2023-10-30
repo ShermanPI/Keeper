@@ -2,45 +2,34 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import React, { useState } from 'react'
+import React from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
 import UserSessionCard from '../components/UserSessionCard/UserSessionCard'
+import { useToggle } from '../hooks/useToggle'
 
 export default function Home () {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [oneColumnGrid, setOneColumnGrid] = useState(false)
-  const [addNoteHidden, setAddNoteHidden] = useState(true)
   const { notes, addNewNote } = useNotes()
-
-  const gridHandler = () => {
-    setOneColumnGrid(!oneColumnGrid)
-  }
-
-  const menuOpenHandler = () => {
-    setMenuOpen(!menuOpen)
-  }
-
-  const toggleNewNote = () => {
-    setAddNoteHidden(!addNoteHidden)
-  }
+  const { toggleState: addNoteHidden, toggle: toggleAddNoteHidden } = useToggle({ initialValue: true })
+  const { toggleState: menuOpen, toggle: toggleMenuOpen } = useToggle({ initialValue: false })
+  const { toggleState: oneColumnGrid, toggle: toggleOneColumnGrid } = useToggle({ initialValue: false })
 
   return (
     <div className='home-container'>
 
-      <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleNewNote}>
-        <NewNote closeHandler={toggleNewNote} addNote={addNewNote} />
+      <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleAddNoteHidden}>
+        <NewNote closeHandler={toggleAddNoteHidden} addNote={addNewNote} />
       </div>
 
-      <Header menuOpenHandler={menuOpenHandler} gridHandler={gridHandler} oneColumnGrid={oneColumnGrid} />
+      <Header menuOpenHandler={toggleMenuOpen} gridHandler={toggleOneColumnGrid} oneColumnGrid={oneColumnGrid} />
       <section className='dashboard-container'>
-        <SideMenu menuOpen={menuOpen} menuOpenHandler={menuOpenHandler} />
+        <SideMenu menuOpen={menuOpen} menuOpenHandler={toggleMenuOpen} />
         <UserSessionCard />
 
         <section className={`all-notes-container ${oneColumnGrid ? 'one-column-width' : ''}`}>
-          <button className='add-note-btn' onClick={toggleNewNote}>
+          <button className='add-note-btn' onClick={toggleAddNoteHidden}>
             <div className='add-icon'>
               <AddIcon />
             </div>

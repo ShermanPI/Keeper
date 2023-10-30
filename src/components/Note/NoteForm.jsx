@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
-// import { sendNewNote } from '../../services/sendNewNote.js'
 
 export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
   const [amplified, setAmplified] = useState(false)
