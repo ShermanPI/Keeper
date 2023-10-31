@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.header-container button {
+.header-btn  {
   min-width: 2.4rem;
   border: none;
   cursor: pointer;
@@ -73,7 +73,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .header-container button{
+  .header-btn {
     font-size: medium;
   }
 
