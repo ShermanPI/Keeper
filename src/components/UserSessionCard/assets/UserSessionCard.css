@@ -3,6 +3,7 @@
     color: white;   
     position: absolute;
     right: 2.8rem;
+    top: calc(100% + 0.4rem);
     z-index: 999;
     padding: 2rem;
     border-radius: 3rem;
@@ -30,12 +31,12 @@
     cursor: pointer;
     position: absolute;
     right: 0.2rem;
-    top: 1.4rem;
+    top: 1.6rem;
 }
 
 .user-profile-picture{
-    width: 8rem;
-    height: 8rem;
+    width: 9.4rem;
+    height: 9.4rem;
     border-radius: 100%;
     background-color: var(--primary-color);
     display: flex;
@@ -45,7 +46,7 @@
     overflow: hidden;
 }
 .close-session{
-    width: 70%;
+    width: 80%;
     padding: 1rem;
     border-radius: 2rem;
     color: var(--light-color);

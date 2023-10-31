@@ -9,6 +9,7 @@
   width: 100%;
   border-radius: 28px;
   gap: 1rem;
+  position: relative;
 }
 
 .header-container button {
@@ -41,6 +42,10 @@
 .profile-picture-container {
   color: #fff;
   background-color: var(--primary-color);
+}
+
+.profile-picture-container img{
+  border-radius: 10rem;
 }
 
 .form-filter-container {
