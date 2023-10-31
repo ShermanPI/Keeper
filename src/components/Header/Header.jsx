@@ -1,7 +1,7 @@
 import './assets/styles/header.css'
 import { MenuIcon, FrameIcon, OneColumnGridIcon, MagnifyingGlasses } from './assets/images/icons'
 
-export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid }) {
+export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid, toggleUserCard }) {
   return (
     <header className='header-container'>
 
@@ -25,7 +25,7 @@ export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid })
       <button className='icon' onClick={gridHandler}>
         {oneColumnGrid ? <FrameIcon /> : <OneColumnGridIcon />}
       </button>
-      <button className='profile-picture-container icon'>
+      <button className='profile-picture-container icon' onClick={toggleUserCard}>
         S
       </button>
     </header>

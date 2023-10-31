@@ -17,7 +17,7 @@
 .email-container{ display: flex;}
 
 .user-email{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -37,7 +37,12 @@
     width: 8rem;
     height: 8rem;
     border-radius: 100%;
-    background-color: red;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    overflow: hidden;
 }
 .close-session{
     width: 70%;
@@ -57,4 +62,8 @@
 .user-welcome h2{
     font-size: 2rem;
     font-weight: 500;
+}
+
+.card-hidden{
+    display: none;
 }

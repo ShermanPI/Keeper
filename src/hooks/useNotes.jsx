@@ -11,7 +11,6 @@ export function useNotes () {
     if (loggedUser) {
       getNotes({ userId: loggedUser.id })
         .then(res => {
-          console.log(res, 'cambio logged user? 👽👽')
           setNotes(res)
         })
     }
@@ -22,7 +21,6 @@ export function useNotes () {
       const newNote = await createNewNote({ title, text: bodyText, userId })
       const newNotes = [...notes]
       newNotes.push(newNote)
-      console.log(newNotes)
       setNotes(newNotes)
     } catch (err) {
       console.error(err)

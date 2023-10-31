@@ -8,6 +8,7 @@ import SideMenu from '../components/SideMenu/SideMenu'
 import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
 import UserSessionCard from '../components/UserSessionCard/UserSessionCard'
+import { Loader } from '../assets/images/loader/Loader'
 import { useToggle } from '../hooks/useToggle'
 
 export default function Home () {
@@ -15,18 +16,19 @@ export default function Home () {
   const { toggleState: addNoteHidden, toggle: toggleAddNoteHidden } = useToggle({ initialValue: true })
   const { toggleState: menuOpen, toggle: toggleMenuOpen } = useToggle({ initialValue: false })
   const { toggleState: oneColumnGrid, toggle: toggleOneColumnGrid } = useToggle({ initialValue: false })
+  const { toggleState: userCardState, toggle: toggleUserCard } = useToggle({ initialValue: false })
 
   return (
     <div className='home-container'>
-
+      <Loader />
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleAddNoteHidden}>
         <NewNote closeHandler={toggleAddNoteHidden} addNote={addNewNote} />
       </div>
 
-      <Header menuOpenHandler={toggleMenuOpen} gridHandler={toggleOneColumnGrid} oneColumnGrid={oneColumnGrid} />
+      <Header menuOpenHandler={toggleMenuOpen} gridHandler={toggleOneColumnGrid} oneColumnGrid={oneColumnGrid} toggleUserCard={toggleUserCard} />
       <section className='dashboard-container'>
         <SideMenu menuOpen={menuOpen} menuOpenHandler={toggleMenuOpen} />
-        <UserSessionCard />
+        <UserSessionCard toggleState={userCardState} handleToggle={toggleUserCard} />
 
         <section className={`all-notes-container ${oneColumnGrid ? 'one-column-width' : ''}`}>
           <button className='add-note-btn' onClick={toggleAddNoteHidden}>
