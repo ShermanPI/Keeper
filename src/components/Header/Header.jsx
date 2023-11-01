@@ -12,8 +12,6 @@ export default function Header ({ menuOpenHandler, gridHandler, oneColumnGrid })
 
   useEffect(() => {
     if (loggedUser) {
-      console.log(loggedUser)
-      console.log(loggedUser.user_metadata.avatar_url)
       setUser({ username: loggedUser.user_metadata.full_name.split(' ')[0], email: loggedUser.user_metadata.email, imageUrl: loggedUser.user_metadata.avatar_url })
     }
   }, [loggedUser])

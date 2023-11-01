@@ -52,6 +52,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           </div>
           <div className='note-action-button'>
             <ImageIcon />
+            <input type='file' name='' />
           </div>
           <div className='note-action-button'>
             <InventoryIcon />

@@ -1,20 +1,22 @@
 import { PalleteIcon, ImageIcon, InventoryIcon, DeleteIcon } from '../Note/assets/images/Icons'
-import { useCallback, useContext, useRef } from 'react'
+import { useContext, useRef } from 'react'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
 import { session } from '../../context/contextLogin'
 
 export default function NewNote ({ closeHandler, addNote }) {
-  const noteTextRef = useRef()
   const noteTitleRef = useRef()
+  const noteTextRef = useRef()
   const { loggedUser } = useContext(session)
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
 
-  const closeAndSave = useCallback(() => {
+  const closeAndSave = () => {
     closeHandler()
     if (loggedUser) {
       addNote({ title: noteTitleRef.current.value, bodyText: noteTextRef.current.textContent, userId: loggedUser.id })
+      noteTitleRef.current.value = ''
+      noteTextRef.current.textContent = ''
     }
-  }, [loggedUser])
+  }
 
   return (
     <div className='new-note' onClick={(e) => e.stopPropagation()}>

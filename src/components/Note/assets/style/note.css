@@ -119,7 +119,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.note-action-button > input[type="file"]{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
+    cursor: pointer; 
 }
 
 .note-action-button:hover{
@@ -285,4 +299,13 @@
 
 .note-title:focus{
   outline: none;
+}
+
+.note-images-container{
+  display: flex;
+  max-width: 100%;
+}
+
+.note-images-container img{
+  width: 30%;
 }
