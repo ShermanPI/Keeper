@@ -3,7 +3,7 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIc
 import { usePlaceholder } from '../../hooks/usePlaceholder'
 import { useToggle } from '../../hooks/useToggle'
 
-export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
+export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {} }) {
   const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
@@ -16,15 +16,19 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
   const handleNoteClick = (e) => {
     e.stopPropagation()
-    if (className !== 'invisible-note') {
+    if (className !== 'invisible-note' && !amplified) {
       toggleAmplified()
     }
   }
 
-  const handleCloseAndSave = (e) => {
+  const handleCloseAndSaveText = (e) => {
     e.stopPropagation()
     toggleAmplified()
-    onSave({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
+    onSaveText({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
+  }
+
+  const handleSaveImage = (e) => {
+    onSaveImage({ file: e.target.files[0] })
   }
 
   return (
@@ -61,7 +65,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           </div>
           <div className='note-action-button'>
             <ImageIcon />
-            <input type='file' name='' />
+            <input type='file' name='' onChange={handleSaveImage} />
           </div>
           <div className='note-action-button'>
             <InventoryIcon />
@@ -69,11 +73,11 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           <div className='note-action-button'>
             <DeleteIcon />
           </div>
-          <button onClick={handleCloseAndSave} className='close-note-btn'>Close</button>
+          <button onClick={handleCloseAndSaveText} className='close-note-btn'>Close</button>
         </div>
         {children}
       </div>
-      {amplified ? <div className='amplified-note-background' onClick={handleCloseAndSave} /> : ''}
+      {amplified ? <div className='amplified-note-background' onClick={handleCloseAndSaveText} /> : ''}
     </>
   )
 }

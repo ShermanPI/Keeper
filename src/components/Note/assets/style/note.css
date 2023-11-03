@@ -49,6 +49,7 @@
 .amplified-note > .note-body-contaier::-webkit-scrollbar{
   width: 1rem;
   position: absolute;
+  padding: 10rem;
 }
 
 .amplified-note > .note-body-contaier::-webkit-scrollbar:hover{
