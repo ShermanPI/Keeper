@@ -46,16 +46,16 @@
 
 }
 
-.note-text::-webkit-scrollbar{
+.note-body-contaier::-webkit-scrollbar{
   width: 0px;
 }
 
-.amplified-note > .note-text::-webkit-scrollbar{
+.amplified-note > .note-body-contaier::-webkit-scrollbar{
   width: 0.8rem;
   position: absolute;
 }
 
-.amplified-note > .note-text::-webkit-scrollbar-thumb{
+.amplified-note > .note-body-contaier::-webkit-scrollbar-thumb{
   background-color: #afafb0;
   cursor: pointer;
   border-radius: 0.3rem;
@@ -81,8 +81,7 @@
 
 .amplified-note{
   z-index: 3;
-  padding: 2rem;
-  padding-bottom: 1rem;
+  padding: 0rem 0rem 1rem 2rem;
   width: 100%;
   height: auto;
   max-width: 60rem;
@@ -228,12 +227,18 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   display: none;
 }
 
+.note-body-contaier{
+  overflow-y: hidden;
+}
+
 .note-text{
   margin-top: 1rem;
-  overflow-y: hidden;
   font-size: 1.6rem;
-  padding-right: 1rem;
   position: relative;
+}
+
+.amplified-note .note-text{
+  padding-right: 1rem;  
 }
 
 .note-text-placeholder, .note-text-placeholder {
@@ -244,11 +249,8 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   pointer-events: none;
 }
 
-.invisible-note > .note-text >.note-text-placeholder{
-  color: transparent;
-}
 
-.amplified-note .note-text{
+.amplified-note .note-body-contaier{
   overflow-y: scroll;
 }
 
@@ -260,11 +262,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   color: transparent;
   position: relative;
 }
-.invisible-note > input{
-  color: transparent;
-  background-color: transparent;
-  border-color: transparent;
-}
+
 
 .invisible-note > textarea{
   color: transparent;
@@ -297,15 +295,29 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   font-size: 1.8rem;
 }
 
+.amplified-note .note-title{
+  margin-top: 1.5rem;
+}
+
 .note-title:focus{
   outline: none;
 }
 
-.note-images-container{
-  display: flex;
-  max-width: 100%;
+.invisible-note > .note-body-contaier > .note-text >.note-text-placeholder{
+  color: transparent;
 }
 
-.note-images-container img{
-  width: 30%;
+.invisible-note > .note-body-contaier > input{
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.note-images-container{
+  background-color: red;
+  width: 100%;
+}
+
+.note-image{
+  width: 100%;
 }

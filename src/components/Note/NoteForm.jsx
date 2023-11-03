@@ -38,12 +38,20 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
           </div>
         </div>
 
-        <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
-        <div className='note-text' name='note-text'>
-          {!isFirstRenderRef.current && <div className='note-text-placeholder'>{noteTextRef.current.textContent || isUserTyping ? '' : 'Empty Note...'}</div>}
-          <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder}>
-            {noteBody}
-          </p>
+        <div className='note-body-contaier'>
+          <div className='note-images-container'>
+            <div className='note-image'>
+              <img src='/bohemian.jpg' alt='' />
+            </div>
+          </div>
+
+          <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
+          <div className='note-text' name='note-text'>
+            {!isFirstRenderRef.current && <div className='note-text-placeholder'>{noteTextRef.current.textContent || isUserTyping ? '' : 'Empty Note...'}</div>}
+            <p ref={noteTextRef} contentEditable='true' role='textarea' suppressContentEditableWarning onInput={handleNotePlaceholder}>
+              {noteBody}
+            </p>
+          </div>
         </div>
 
         <div className='note-buttons-container'>
