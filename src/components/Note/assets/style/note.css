@@ -1,7 +1,6 @@
 .note {
   border: 1px solid;
   border-radius: 8px;
-  padding: 0rem 1.6rem 0.6rem 1.6rem;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -46,19 +45,19 @@
 
 }
 
-.note-body-contaier::-webkit-scrollbar{
-  width: 0px;
-}
 
 .amplified-note > .note-body-contaier::-webkit-scrollbar{
-  width: 0.8rem;
+  width: 1rem;
   position: absolute;
+}
+
+.amplified-note > .note-body-contaier::-webkit-scrollbar:hover{
+  background-color: rgba(255, 255, 255, 0.103);
 }
 
 .amplified-note > .note-body-contaier::-webkit-scrollbar-thumb{
   background-color: #afafb0;
   cursor: pointer;
-  border-radius: 0.3rem;
 }
 
 .ampliable-note{
@@ -81,12 +80,12 @@
 
 .amplified-note{
   z-index: 3;
-  padding: 0rem 0rem 1rem 2rem;
   width: 100%;
   height: auto;
   max-width: 60rem;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
   max-height: 90vh;
+  overflow: hidden;
   
   /*withouth the note animation*/
   top: 50%;  
@@ -101,13 +100,18 @@
 
 .amplified-note p{
   cursor: text;
+  
+}
 
+.amplified-note .note-buttons-container{
+  padding-inline: 1.6rem;
 }
 
 .note-buttons-container{
   display: none;
   margin-left: -1rem;
-  /* transition: all 0.2s ease; */
+  padding-inline: 1.4rem;
+  padding-block: 0.6rem;
 }
 
 .note-action-button{
@@ -120,6 +124,8 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  transition: all 0.2s ease;
+
 }
 
 .note-action-button > input[type="file"]{
@@ -144,10 +150,10 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   height: 2rem;
   background-color: #fff;
   border-radius: 5rem;
-  left: -2.4rem;
+  left: -0.8rem;
   top: -0.8rem;
   opacity: 0;
-  /* transition: opacity 0.2s ease; */
+  transition: opacity 0.2s ease;
   padding: 0.1rem;
   cursor: pointer;
   position: relative;
@@ -160,7 +166,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   right: 0.8rem;
   top: 1.4rem;
   opacity: 0;
-  /* transition: background 0.2s ease; */
+  transition: background 0.2s ease;
   padding: 0.4rem;
   cursor: pointer;
   border-radius: 3rem;
@@ -180,7 +186,6 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 @media only screen and (min-width: 768px) {
   
   .note-buttons-container{
-    margin-top: 1rem;
     display: flex;
     opacity: 0;
   }
@@ -228,13 +233,14 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 .note-body-contaier{
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .note-text{
   margin-top: 1rem;
   font-size: 1.6rem;
   position: relative;
+  margin-inline: 1.6rem;
 }
 
 .amplified-note .note-text{
@@ -251,7 +257,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 
 .amplified-note .note-body-contaier{
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .note-text p:focus{
@@ -264,10 +270,8 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 
-.invisible-note > textarea{
-  color: transparent;
-  background-color: transparent;
-  border-color: transparent;
+.invisible-note > .note-body-contaier > .note-images-container{
+  opacity: 0;
 }
 
 
@@ -293,10 +297,8 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   border: none;
   font-weight: bold;
   font-size: 1.8rem;
-}
-
-.amplified-note .note-title{
-  margin-top: 1.5rem;
+  margin: 1.6rem;
+  margin-bottom: 0rem;
 }
 
 .note-title:focus{

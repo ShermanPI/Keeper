@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
+import { useToggle } from '../../hooks/useToggle'
 
 export default function NoteForm ({ className, children, title, noteBody, onSave = function noop () {} }) {
-  const [amplified, setAmplified] = useState(false)
+  const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
@@ -16,13 +17,13 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
   const handleNoteClick = (e) => {
     e.stopPropagation()
     if (className !== 'invisible-note') {
-      setAmplified(true)
+      toggleAmplified()
     }
   }
 
   const handleCloseAndSave = (e) => {
     e.stopPropagation()
-    setAmplified(false)
+    toggleAmplified()
     onSave({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
   }
 
