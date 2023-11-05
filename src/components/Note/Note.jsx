@@ -17,7 +17,7 @@ export default function Note ({ children, title, id }) {
   }
 
   const saveImage = async ({ file }) => {
-    uploadNoteImage({ file })
+    uploadNoteImage({ file, id })
   }
 
   return (

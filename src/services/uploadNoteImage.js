@@ -1,13 +1,19 @@
 import { supabase } from './clients/supabaseClient'
+import generateUuidv4 from '../utilities/generateUuidv4'
 
-export default async function uploadNoteImage ({ file }) {
+export default async function uploadNoteImage ({ file, id }) {
   try {
     console.log(file)
-    const { data } = await supabase
-      .storage
-      .from('note_images')
-      .upload(`public/note.${file.type.split('/')[1]}`, file)
-    console.log(`note.${file.type.split('/')[1]}`, data, '👽👽👽')
+    const imageName = `${generateUuidv4()}.${file.type.split('/')[1]}`
+
+    const { data: imageData } = await supabase.storage.from('note_images').upload(imageName, file)
+    const imageUrl = `https://tultuilkggwdtyxmkrir.supabase.co/storage/v1/object/public/note_images/${imageData.path}`
+    const { data: attachmentData } = await supabase
+      .from('attachment')
+      .insert({ note_id: id, url: imageUrl, title: imageName })
+      .select()
+
+    return { attachmentData }
   } catch (error) {
     console.error('An error ocurred while attempting uploading the image', error.message)
   }
