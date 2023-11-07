@@ -16,7 +16,8 @@ export default function Home () {
   const { toggleState: menuOpen, toggle: toggleMenuOpen } = useToggle({ initialValue: false })
   const { toggleState: oneColumnGrid, toggle: toggleOneColumnGrid } = useToggle({ initialValue: false })
 
-  const noteList = useMemo(() => notes.map(function hola (el) {
+  const noteList = useMemo(() => notes.map((el) => {
+    console.log('note changed')
     return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
   }), [notes])
 

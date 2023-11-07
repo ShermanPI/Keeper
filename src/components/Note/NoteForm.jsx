@@ -3,7 +3,7 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIc
 import { usePlaceholder } from '../../hooks/usePlaceholder'
 import { useToggle } from '../../hooks/useToggle'
 
-export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {} }) {
+export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [] }) {
   const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
@@ -46,7 +46,9 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
         <div className='note-body-contaier'>
           <div className='note-images-container'>
             <div className='note-image'>
-              <img src='/bohemian.jpg' alt='' />
+              {attachments.map((el) => {
+                return <img src={el.url} key={el.id} alt='' />
+              })}
             </div>
           </div>
 

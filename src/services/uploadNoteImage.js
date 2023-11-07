@@ -3,7 +3,6 @@ import generateUuidv4 from '../utilities/generateUuidv4'
 
 export default async function uploadNoteImage ({ file, id }) {
   try {
-    console.log(file)
     const imageName = `${generateUuidv4()}.${file.type.split('/')[1]}`
 
     const { data: imageData } = await supabase.storage.from('note_images').upload(imageName, file)
