@@ -45,11 +45,12 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
         <div className='note-body-contaier'>
           <div className='note-images-container'>
-            <div className='note-image'>
-              {attachments.map((el) => {
-                return <img src={el.url} key={el.id} alt='' />
-              })}
-            </div>
+
+            {attachments.map((el) => {
+              return (
+                <img src={el.url} alt='' key={el.id} />
+              )
+            })}
           </div>
 
           <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />

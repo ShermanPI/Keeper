@@ -67,8 +67,7 @@ body {
 
 @media only screen and (min-width: 768px) {
   .all-notes-container{
-    margin-inline: 6rem;
-    padding: 1rem 1rem 15rem 1rem;
+    padding: 1rem 4rem 15rem 5rem;
   }
   
   .all-notes-container.one-column-width{

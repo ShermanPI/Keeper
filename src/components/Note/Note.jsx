@@ -29,7 +29,6 @@ export default function Note ({ children, title, id }) {
 
   const saveImage = async ({ file }) => {
     const { attachmentData: data } = await uploadNoteImage({ file, id })
-    console.log('before', attachments, data)
     const newAttachments = [...attachments]
     newAttachments.push(data[0])
     setAttachments(newAttachments)

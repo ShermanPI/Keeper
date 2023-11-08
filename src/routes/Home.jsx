@@ -17,7 +17,6 @@ export default function Home () {
   const { toggleState: oneColumnGrid, toggle: toggleOneColumnGrid } = useToggle({ initialValue: false })
 
   const noteList = useMemo(() => notes.map((el) => {
-    console.log('note changed')
     return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
   }), [notes])
 

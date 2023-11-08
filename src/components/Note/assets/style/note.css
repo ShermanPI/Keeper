@@ -316,11 +316,11 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   border-color: transparent;
 }
 
-.note-images-container{
-  background-color: red;
-  width: 100%;
+.note-images-container {
+  display: flex;
+  outline: 1px solid white
 }
 
-.note-image{
-  width: 100%;
+.note-images-container img{
+  width: 0;
 }
