@@ -45,11 +45,8 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
         <div className='note-body-contaier'>
           <div className='note-images-container'>
-
             {attachments.map((el) => {
-              return (
-                <img src={el.url} alt='' key={el.id} />
-              )
+              return (<img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)
             })}
           </div>
 

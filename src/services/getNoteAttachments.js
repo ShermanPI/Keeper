@@ -6,8 +6,7 @@ export async function getNoteAttachments ({ noteId }) {
       .from('attachment')
       .select('*')
       .eq('note_id', noteId)
-    console.log(attachments)
-    return (attachments.map((el) => ({ url: `${bucketUrl}/${el.title}`, id: el.id })))
+    return (attachments.map((el) => ({ url: `${bucketUrl}/${el.title}`, id: el.id, width: el.width, height: el.height })))
   } catch (error) {
     console.error('An error ocurred when getting the note images', error.message)
   }

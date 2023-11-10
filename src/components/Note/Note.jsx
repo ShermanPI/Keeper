@@ -28,10 +28,17 @@ export default function Note ({ children, title, id }) {
   }
 
   const saveImage = async ({ file }) => {
-    const { attachmentData: data } = await uploadNoteImage({ file, id })
-    const newAttachments = [...attachments]
-    newAttachments.push(data[0])
-    setAttachments(newAttachments)
+    const img = document.createElement('img')
+    const objectURL = URL.createObjectURL(file)
+    img.src = objectURL
+
+    img.onload = async () => {
+      const { attachmentData: data } = await uploadNoteImage({ file, id, width: img.width, height: img.height })
+      URL.revokeObjectURL(objectURL)
+      const newAttachments = [...attachments]
+      newAttachments.push(data[0])
+      setAttachments(newAttachments)
+    }
   }
 
   return (

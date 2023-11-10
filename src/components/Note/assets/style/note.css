@@ -318,7 +318,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 .note-images-container {
   display: flex;
-  outline: 1px solid white
+  gap: 0.2rem;
 }
 
 .note-images-container img{

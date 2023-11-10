@@ -1,7 +1,7 @@
 import { supabase } from './clients/supabaseClient'
 import generateUuidv4 from '../utilities/generateUuidv4'
 
-export default async function uploadNoteImage ({ file, id }) {
+export default async function uploadNoteImage ({ file, id, width, height }) {
   try {
     const imageName = `${generateUuidv4()}.${file.type.split('/')[1]}`
 
@@ -9,7 +9,7 @@ export default async function uploadNoteImage ({ file, id }) {
     const imageUrl = `https://tultuilkggwdtyxmkrir.supabase.co/storage/v1/object/public/note_images/${imageData.path}`
     const { data: attachmentData } = await supabase
       .from('attachment')
-      .insert({ note_id: id, url: imageUrl, title: imageName })
+      .insert({ note_id: id, url: imageUrl, title: imageName, width, height })
       .select()
 
     return { attachmentData }
