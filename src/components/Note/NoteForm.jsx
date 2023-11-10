@@ -31,6 +31,19 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     onSaveImage({ file: e.target.files[0] })
   }
 
+  const imageAttachments = []
+
+  for (let i = 0; i < attachments.length; i += 3) {
+    const imagesGroup = attachments.slice(i, (i + 3))
+    const imageContainer = (
+      <div className='note-images-container'>
+        {imagesGroup.map(el => <img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)}
+      </div>
+    )
+    imageAttachments.push(imageContainer)
+    console.log(imageAttachments, 'hey')
+  }
+
   return (
     <>
       <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
@@ -44,10 +57,13 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
         </div>
 
         <div className='note-body-contaier'>
-          <div className='note-images-container'>
+          {/* <div className='note-images-container'>
             {attachments.map((el) => {
               return (<img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)
             })}
+          </div> */}
+          <div className='images-container'>
+            {imageAttachments.reverse().map((el) => el)}
           </div>
 
           <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
