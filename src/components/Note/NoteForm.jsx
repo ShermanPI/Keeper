@@ -37,7 +37,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     const imagesGroup = attachments.slice(i, (i + 3))
     const imageContainer = (
       <div className='note-images-container'>
-        {imagesGroup.map(el => <img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)}
+        {imagesGroup.reverse().map(el => <img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)}
       </div>
     )
     imageAttachments.push(imageContainer)
@@ -63,7 +63,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
             })}
           </div> */}
           <div className='images-container'>
-            {imageAttachments.reverse().map((el) => el)}
+            {imageAttachments.map((el) => el)}
           </div>
 
           <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />

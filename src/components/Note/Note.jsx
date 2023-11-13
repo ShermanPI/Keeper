@@ -36,7 +36,7 @@ export default function Note ({ children, title, id }) {
       const { attachmentData: data } = await uploadNoteImage({ file, id, width: img.width, height: img.height })
       URL.revokeObjectURL(objectURL)
       const newAttachments = [...attachments]
-      newAttachments.push(data[0])
+      newAttachments.unshift(data[0])
       setAttachments(newAttachments)
     }
   }
