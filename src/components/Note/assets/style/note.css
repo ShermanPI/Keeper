@@ -271,7 +271,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 
-.invisible-note > .note-body-contaier > .note-images-container{
+.invisible-note > .note-body-contaier > .images-container{
   opacity: 0;
 }
 
@@ -316,11 +316,18 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   border-color: transparent;
 }
 
-.note-images-container {
+.images-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.2rem;
+  row-gap: 0.1rem;
 }
 
-.note-images-container img{
+.note-image{
+  display: flex;
   width: 0;
+}
+
+.break{
+  flex-basis: 100%;
 }

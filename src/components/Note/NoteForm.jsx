@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
 import { useToggle } from '../../hooks/useToggle'
@@ -31,19 +31,6 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     onSaveImage({ file: e.target.files[0] })
   }
 
-  const imageAttachments = []
-
-  for (let i = 0; i < attachments.length; i += 3) {
-    const imagesGroup = attachments.slice(i, (i + 3))
-    const imageContainer = (
-      <div className='note-images-container'>
-        {imagesGroup.reverse().map(el => <img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)}
-      </div>
-    )
-    imageAttachments.push(imageContainer)
-    console.log(imageAttachments, 'hey')
-  }
-
   return (
     <>
       <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
@@ -57,13 +44,19 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
         </div>
 
         <div className='note-body-contaier'>
-          {/* <div className='note-images-container'>
-            {attachments.map((el) => {
-              return (<img src={el.url} key={el.id} style={{ flexGrow: `calc(${el.width}/${el.height})` }} />)
-            })}
-          </div> */}
           <div className='images-container'>
-            {imageAttachments.map((el) => el)}
+            {attachments.map((el, i) => {
+              const image = (
+                <React.Fragment key={el.id}>
+                  <div key={el.id} className='note-image' style={{ flexGrow: `calc(${el.width}/${el.height})` }}>
+                    <img src={el.url} alt={el.title} />
+                  </div>
+                  {((i + 1) % 3 === 0) && <div className='break' />}
+                </React.Fragment>
+              )
+
+              return image
+            })}
           </div>
 
           <input type='text' ref={noteTitleRef} name='note-title' defaultValue={title} className='note-title' placeholder='Title' />
