@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
-import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PushPinIcon } from './assets/images/Icons'
+import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PaperBin, PushPinIcon } from './assets/images/Icons'
 import { usePlaceholder } from '../../hooks/usePlaceholder'
 import { useToggle } from '../../hooks/useToggle'
 
-export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [] }) {
+export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
   const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
@@ -31,6 +31,10 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     onSaveImage({ file: e.target.files[0] })
   }
 
+  const handleDeleteImage = ({ imageName, attachmentId }) => {
+    deleteImage({ imageName, attachmentId })
+  }
+
   return (
     <>
       <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
@@ -50,6 +54,9 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
                 <React.Fragment key={el.id}>
                   <div key={el.id} className='note-image' style={{ flexGrow: `calc(${el.width}/${el.height})` }}>
                     <img src={el.url} alt={el.title} />
+                    <button className='delete-img-btn' onClick={() => handleDeleteImage({ imageName: el.title, attachmentId: el.id })}>
+                      <PaperBin />
+                    </button>
                   </div>
                   {((i + 1) % 3 === 0) && <div className='break' />}
                 </React.Fragment>

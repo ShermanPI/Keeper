@@ -326,8 +326,42 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 .note-image{
   display: flex;
   width: 0;
+  position: relative;
 }
 
 .break{
   flex-basis: 100%;
+}
+
+.delete-img-btn{
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0.5rem;
+  background-color: #000000b1;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 400ms ease;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  opacity: 0;
+}
+
+.delete-img-btn svg{
+  fill: rgba(255, 255, 255, 0.721);
+  transition: all 400ms ease;
+
+}
+
+.delete-img-btn:hover{
+  background-color: #000000;
+}
+
+.delete-img-btn:hover svg{
+  fill: #fff;
+}
+
+.note-image:hover .delete-img-btn{
+  opacity: 1;
 }
