@@ -41,13 +41,12 @@ export default function Note ({ children, title, id }) {
       setAttachments(newAttachments)
     }
   }
-  console.log(attachments)
-  const deleteImage = async ({ imageName, attachmentId }) => {
+  const deleteImage = ({ imageName, attachmentId }) => {
     const newAttachments = [...attachments]
     const indexToDelete = newAttachments.findIndex(el => el.id === attachmentId)
     newAttachments.splice(indexToDelete, 1)
     setAttachments(newAttachments)
-    await deleteNoteAttachment({ imageName, attachmentId })
+    deleteNoteAttachment({ imageName, attachmentId })
   }
 
   return (

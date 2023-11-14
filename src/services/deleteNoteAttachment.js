@@ -6,7 +6,6 @@ export async function deleteNoteAttachment ({ imageName, attachmentId }) {
       .storage
       .from('note_images')
       .remove([imageName])
-    console.log(imageName)
 
     const { error } = await supabase
       .from('attachment')

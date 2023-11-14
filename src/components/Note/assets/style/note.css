@@ -32,7 +32,15 @@
   display: none;
 }
 
+.ampliable-note .delete-img-btn{
+  display: none;
+}
+
 .amplified-note .close-note-btn{
+  display: block;
+}
+
+.amplified-note .delete-img-btn{
   display: block;
 }
 

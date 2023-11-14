@@ -52,7 +52,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
             {attachments.map((el, i) => {
               const image = (
                 <React.Fragment key={el.id}>
-                  <div key={el.id} className='note-image' style={{ flexGrow: `calc(${el.width}/${el.height})` }}>
+                  <div key={el.id} className='note-image' style={{ flexGrow: (attachments.length % 3 === 1) && i === attachments.length - 1 ? '1' : `calc(${el.width}/${el.height})` }}>
                     <img src={el.url} alt={el.title} />
                     <button className='delete-img-btn' onClick={() => handleDeleteImage({ imageName: el.title, attachmentId: el.id })}>
                       <PaperBin />
