@@ -1,7 +1,8 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useMemo } from 'react'
 import { getNotes } from '../services/getNotes'
 import createNewNote from '../services/createNewNote'
 import { session } from '../context/contextLogin'
+import Note from '../components/Note/Note'
 
 export function useNotes () {
   const [notes, setNotes] = useState([])
@@ -27,9 +28,13 @@ export function useNotes () {
     }
   }
 
+  const noteList = useMemo(() => notes.map((el) => {
+    return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
+  }), [notes])
+
   return (
     {
-      notes,
+      noteList,
       addNewNote
     }
   )

@@ -9,31 +9,13 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
     noteTextRef,
     noteTitleRef,
     amplified,
-    toggleAmplified,
     isUserTyping,
-    handleNotePlaceholder
-  } = useNote()
-
-  const handleNoteClick = (e) => {
-    e.stopPropagation()
-    if (className !== 'invisible-note' && !amplified) {
-      toggleAmplified()
-    }
-  }
-
-  const handleCloseAndSaveText = (e) => {
-    e.stopPropagation()
-    toggleAmplified()
-    onSaveText({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
-  }
-
-  const handleSaveImage = (e) => {
-    onSaveImage({ file: e.target.files[0] })
-  }
-
-  const handleDeleteImage = ({ imageName, attachmentId }) => {
-    deleteImage({ imageName, attachmentId })
-  }
+    handleNotePlaceholder,
+    handleNoteClick,
+    handleCloseAndSaveText,
+    handleSaveImage,
+    handleDeleteImage
+  } = useNote({ className, onSaveText, onSaveImage, deleteImage })
 
   return (
     <>

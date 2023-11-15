@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react'
 import { useToggle } from '../../../hooks/useToggle'
 import { usePlaceholder } from '../../../hooks/usePlaceholder'
 
-export function useNote () {
+export function useNote ({ className, onSaveText, onSaveImage, deleteImage }) {
   const isFirstRenderRef = useRef(true)
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
@@ -13,6 +13,27 @@ export function useNote () {
     isFirstRenderRef.current = false
   }, [])
 
+  const handleNoteClick = (e) => {
+    e.stopPropagation()
+    if (className !== 'invisible-note' && !amplified) {
+      toggleAmplified()
+    }
+  }
+
+  const handleCloseAndSaveText = (e) => {
+    e.stopPropagation()
+    toggleAmplified()
+    onSaveText({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
+  }
+
+  const handleSaveImage = (e) => {
+    onSaveImage({ file: e.target.files[0] })
+  }
+
+  const handleDeleteImage = ({ imageName, attachmentId }) => {
+    deleteImage({ imageName, attachmentId })
+  }
+
   return {
     isFirstRenderRef,
     noteTextRef,
@@ -20,6 +41,10 @@ export function useNote () {
     amplified,
     toggleAmplified,
     isUserTyping,
-    handleNotePlaceholder
+    handleNotePlaceholder,
+    handleNoteClick,
+    handleCloseAndSaveText,
+    handleSaveImage,
+    handleDeleteImage
   }
 }
