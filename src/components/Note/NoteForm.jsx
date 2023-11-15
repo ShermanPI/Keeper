@@ -3,7 +3,7 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PaperBin, PushPinIcon 
 import { useNote } from './hooks/useNote'
 import { ChangeColorCard } from './components/ChangeColorCard'
 
-export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
+export default function NoteForm ({ className, children, noteColor = 'transparent', title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
   const {
     isFirstRenderRef,
     noteTextRef,
@@ -19,7 +19,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
 
   return (
     <>
-      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick}>
+      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick} style={{ backgroundColor: noteColor }}>
         <div className='note-top-icons'>
           <div className='select-note-icon'>
             <CheckIcon />

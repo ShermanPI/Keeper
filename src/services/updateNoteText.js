@@ -1,6 +1,6 @@
 import { supabase } from './clients/supabaseClient'
 
-export default async function updateNote ({ id, title, text }) {
+export default async function updateNoteText ({ id, title, text }) {
   try {
     const { data } = await supabase
       .from('note')

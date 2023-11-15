@@ -29,7 +29,7 @@ export function useNotes () {
   }
 
   const noteList = useMemo(() => notes.map((el) => {
-    return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
+    return (<Note key={el.id} title={el.title} id={el.id} noteColor={el.noteColor}>{el.bodyText}</Note>)
   }), [notes])
 
   return (

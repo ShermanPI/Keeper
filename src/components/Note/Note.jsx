@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './assets/style/note.css'
 import NoteForm from './NoteForm'
-import updateNote from '../../services/updateNote'
+import updateNoteText from '../../services/updateNoteText'
 import uploadNoteImage from '../../services/uploadNoteImage'
 import { getNoteAttachments } from '../../services/getNoteAttachments'
 import { deleteNoteAttachment } from '../../services/deleteNoteAttachment'
 
-export default function Note ({ children, title, id }) {
+export default function Note ({ children, title, id, noteColor }) {
   const [textContent, setNoteText] = useState({ title, text: children })
   const noteContentRef = useRef(textContent)
   const [attachments, setAttachments] = useState([])
@@ -22,7 +22,7 @@ export default function Note ({ children, title, id }) {
 
   const saveNote = async ({ title, text }) => {
     if (!(JSON.stringify(noteContentRef.current) === JSON.stringify({ title, text }))) {
-      const editedNote = await updateNote({ id, title, text })
+      const editedNote = await updateNoteText({ id, title, text })
       setNoteText(editedNote[0])
       noteContentRef.current = { title, text }
     }
@@ -51,7 +51,7 @@ export default function Note ({ children, title, id }) {
 
   return (
     <NoteForm className='invisible-note' title={textContent.title} noteBody={textContent.text} attachments={attachments}>
-      <NoteForm className='ampliable-note' title={textContent.title} noteBody={textContent.text} onSaveText={saveNote} onSaveImage={saveImage} attachments={attachments} deleteImage={deleteImage} />
+      <NoteForm className='ampliable-note' noteColor={noteColor} title={textContent.title} noteBody={textContent.text} onSaveText={saveNote} onSaveImage={saveImage} attachments={attachments} deleteImage={deleteImage} />
     </NoteForm>
   )
 }
