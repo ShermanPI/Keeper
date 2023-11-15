@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from 'react'
-import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PalleteIcon, PaperBin, PushPinIcon } from './assets/images/Icons'
-import { usePlaceholder } from '../../hooks/usePlaceholder'
-import { useToggle } from '../../hooks/useToggle'
+import React from 'react'
+import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PaperBin, PushPinIcon } from './assets/images/Icons'
+import { useNote } from './hooks/useNote'
+import { ChangeColorCard } from './components/ChangeColorCard'
 
 export default function NoteForm ({ className, children, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
-  const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
-  const noteTextRef = useRef()
-  const noteTitleRef = useRef()
-  const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
-  const isFirstRenderRef = useRef(true)
-
-  useEffect(() => {
-    isFirstRenderRef.current = false
-  }, [])
+  const {
+    isFirstRenderRef,
+    noteTextRef,
+    noteTitleRef,
+    amplified,
+    toggleAmplified,
+    isUserTyping,
+    handleNotePlaceholder
+  } = useNote()
 
   const handleNoteClick = (e) => {
     e.stopPropagation()
@@ -76,9 +76,7 @@ export default function NoteForm ({ className, children, title, noteBody, onSave
         </div>
 
         <div className='note-buttons-container'>
-          <div className='note-action-button'>
-            <PalleteIcon />
-          </div>
+          <ChangeColorCard />
           <div className='note-action-button'>
             <ImageIcon />
             <input type='file' name='' onChange={handleSaveImage} />

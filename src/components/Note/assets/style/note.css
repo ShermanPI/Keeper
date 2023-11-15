@@ -132,7 +132,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
   transition: all 0.2s ease;
 
 }
@@ -372,4 +371,44 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 .note-image:hover .delete-img-btn{
   opacity: 1;
+}
+
+.change-color-btn{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-colors-container{
+  position: absolute;
+  background-color: #202124;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  bottom: calc(100% + 0.4rem);
+  left: 0.2rem;
+  z-index: 10000;
+  padding: 0.6rem 1rem 0.4rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.hidden-note-color{
+  display: none;
+}
+
+.note-colors{
+  display: flex;
+  gap: 0.6rem;
+}
+
+.note-item-color{
+  list-style: none;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: red;
+  border-radius: 100%;
+  border: 0.2rem solid blue;
+}
+
+.note-item-color:hover{
+  border: 0.2rem solid white;
 }
