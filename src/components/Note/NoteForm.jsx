@@ -1,6 +1,6 @@
 import React from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PaperBin, PushPinIcon } from './assets/images/Icons'
-import { useNote } from './hooks/useNote'
+import { useNoteForm } from './hooks/useNoteForm'
 import { ChangeColorCard } from './components/ChangeColorCard'
 
 export default function NoteForm ({ className, children, noteColor = 'transparent', title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
@@ -15,7 +15,7 @@ export default function NoteForm ({ className, children, noteColor = 'transparen
     handleCloseAndSaveText,
     handleSaveImage,
     handleDeleteImage
-  } = useNote({ className, onSaveText, onSaveImage, deleteImage })
+  } = useNoteForm({ className, onSaveText, onSaveImage, deleteImage })
 
   return (
     <>

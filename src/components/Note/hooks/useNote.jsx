@@ -1,50 +1,58 @@
-import { useRef, useEffect } from 'react'
-import { useToggle } from '../../../hooks/useToggle'
-import { usePlaceholder } from '../../../hooks/usePlaceholder'
+import { useEffect, useState, useRef } from 'react'
+import { getNoteAttachments } from '../../../services/getNoteAttachments'
+import updateNoteText from '../../../services/updateNoteText'
+import { deleteNoteAttachment } from '../../../services/deleteNoteAttachment'
+import uploadNoteImage from '../../../services/uploadNoteImage'
 
-export function useNote ({ className, onSaveText, onSaveImage, deleteImage }) {
-  const isFirstRenderRef = useRef(true)
-  const noteTextRef = useRef()
-  const noteTitleRef = useRef()
-  const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
-  const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
+export default function useNote ({ children, title, id, noteColor }) {
+  const [textContent, setNoteText] = useState({ title, text: children })
+  const noteContentRef = useRef(textContent)
+  const [attachments, setAttachments] = useState([])
 
   useEffect(() => {
-    isFirstRenderRef.current = false
+    (async () => {
+      if (id) {
+        const attachments = await getNoteAttachments({ noteId: id })
+        setAttachments(attachments)
+      }
+    })()
   }, [])
 
-  const handleNoteClick = (e) => {
-    e.stopPropagation()
-    if (className !== 'invisible-note' && !amplified) {
-      toggleAmplified()
+  const saveNote = async ({ title, text }) => {
+    if (!(JSON.stringify(noteContentRef.current) === JSON.stringify({ title, text }))) {
+      const editedNote = await updateNoteText({ id, title, text })
+      setNoteText(editedNote[0])
+      noteContentRef.current = { title, text }
     }
   }
 
-  const handleCloseAndSaveText = (e) => {
-    e.stopPropagation()
-    toggleAmplified()
-    onSaveText({ text: noteTextRef.current.textContent, title: noteTitleRef.current.value })
-  }
+  const saveImage = async ({ file }) => {
+    const img = document.createElement('img')
+    const objectURL = URL.createObjectURL(file)
+    img.src = objectURL
 
-  const handleSaveImage = (e) => {
-    onSaveImage({ file: e.target.files[0] })
+    img.onload = async () => {
+      const { attachmentData: data } = await uploadNoteImage({ file, id, width: img.width, height: img.height })
+      URL.revokeObjectURL(objectURL)
+      const newAttachments = [...attachments]
+      newAttachments.push(data[0])
+      setAttachments(newAttachments)
+    }
   }
-
-  const handleDeleteImage = ({ imageName, attachmentId }) => {
-    deleteImage({ imageName, attachmentId })
+  const deleteImage = ({ imageName, attachmentId }) => {
+    const newAttachments = [...attachments]
+    const indexToDelete = newAttachments.findIndex(el => el.id === attachmentId)
+    newAttachments.splice(indexToDelete, 1)
+    setAttachments(newAttachments)
+    deleteNoteAttachment({ imageName, attachmentId })
   }
 
   return {
-    isFirstRenderRef,
-    noteTextRef,
-    noteTitleRef,
-    amplified,
-    toggleAmplified,
-    isUserTyping,
-    handleNotePlaceholder,
-    handleNoteClick,
-    handleCloseAndSaveText,
-    handleSaveImage,
-    handleDeleteImage
+    textContent,
+    attachments,
+    noteContentRef,
+    saveNote,
+    saveImage,
+    deleteImage
   }
 }
