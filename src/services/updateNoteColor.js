@@ -1,10 +1,10 @@
 import { supabase } from './clients/supabaseClient'
 
-export default async function updateNoteColor ({ id, hexColor }) {
+export async function updateNoteColor ({ id, hexColorString }) {
   try {
     const { data } = await supabase
       .from('note')
-      .update({ background_color: hexColor })
+      .update({ background_color: hexColorString })
       .eq('id', id)
       .select()
 

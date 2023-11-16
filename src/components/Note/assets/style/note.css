@@ -413,9 +413,9 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   height: 3.2rem;
   width: 3.2rem;
   border-radius: 100%;
+  border: 0.2rem solid transparent;
 }
 
 .note-item-color:hover{
-  border: 0.2rem solid ;
-  border-color: #fff;
+  border: 0.2rem solid #fff;
 }

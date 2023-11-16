@@ -1,13 +1,15 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useToggle } from '../../../hooks/useToggle'
 import { usePlaceholder } from '../../../hooks/usePlaceholder'
+import { updateNoteColor } from '../../../services/updateNoteColor'
 
-export function useNoteForm ({ className, onSaveText, onSaveImage, deleteImage }) {
+export function useNoteForm ({ className, onSaveText, onSaveImage, deleteImage, noteColorInitialValue, id }) {
   const isFirstRenderRef = useRef(true)
   const noteTextRef = useRef()
   const noteTitleRef = useRef()
   const { toggleState: amplified, toggle: toggleAmplified } = useToggle({ initialValue: false })
   const { isUserTyping, handleNotePlaceholder } = usePlaceholder({ noteTextRef })
+  const [colorState, setColorState] = useState(noteColorInitialValue)
 
   useEffect(() => {
     isFirstRenderRef.current = false
@@ -34,17 +36,23 @@ export function useNoteForm ({ className, onSaveText, onSaveImage, deleteImage }
     deleteImage({ imageName, attachmentId })
   }
 
+  const handleChangeColor = ({ noteColor }) => {
+    setColorState(noteColor)
+    updateNoteColor({ id, hexColorString: noteColor })
+  }
+
   return {
     isFirstRenderRef,
     noteTextRef,
+    colorState,
     noteTitleRef,
     amplified,
-    toggleAmplified,
     isUserTyping,
     handleNotePlaceholder,
     handleNoteClick,
     handleCloseAndSaveText,
     handleSaveImage,
-    handleDeleteImage
+    handleDeleteImage,
+    handleChangeColor
   }
 }

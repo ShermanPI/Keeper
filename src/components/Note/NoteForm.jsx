@@ -3,10 +3,11 @@ import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PaperBin, PushPinIcon 
 import { useNoteForm } from './hooks/useNoteForm'
 import { ChangeColorCard } from './components/ChangeColorCard'
 
-export default function NoteForm ({ className, children, noteColor = 'transparent', title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
+export default function NoteForm ({ id, className, children, noteColor, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
   const {
     isFirstRenderRef,
     noteTextRef,
+    colorState,
     noteTitleRef,
     amplified,
     isUserTyping,
@@ -14,12 +15,13 @@ export default function NoteForm ({ className, children, noteColor = 'transparen
     handleNoteClick,
     handleCloseAndSaveText,
     handleSaveImage,
-    handleDeleteImage
-  } = useNoteForm({ className, onSaveText, onSaveImage, deleteImage })
+    handleDeleteImage,
+    handleChangeColor
+  } = useNoteForm({ className, onSaveText, onSaveImage, deleteImage, noteColorInitialValue: noteColor, id })
 
   return (
     <>
-      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick} style={{ backgroundColor: noteColor }}>
+      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick} style={{ backgroundColor: colorState }}>
         <div className='note-top-icons'>
           <div className='select-note-icon'>
             <CheckIcon />
@@ -58,17 +60,21 @@ export default function NoteForm ({ className, children, noteColor = 'transparen
         </div>
 
         <div className='note-buttons-container'>
-          <ChangeColorCard />
+          <ChangeColorCard handleChangeColor={handleChangeColor} noteColor={colorState} />
+
           <div className='note-action-button'>
             <ImageIcon />
             <input type='file' name='' onChange={handleSaveImage} />
           </div>
+
           <div className='note-action-button'>
             <InventoryIcon />
           </div>
+
           <div className='note-action-button'>
             <DeleteIcon />
           </div>
+
           <button onClick={handleCloseAndSaveText} className='close-note-btn'>Close</button>
         </div>
         {children}

@@ -4,7 +4,7 @@ import updateNoteText from '../../../services/updateNoteText'
 import { deleteNoteAttachment } from '../../../services/deleteNoteAttachment'
 import uploadNoteImage from '../../../services/uploadNoteImage'
 
-export default function useNote ({ children, title, id, noteColor }) {
+export default function useNote ({ children, title, id }) {
   const [textContent, setNoteText] = useState({ title, text: children })
   const noteContentRef = useRef(textContent)
   const [attachments, setAttachments] = useState([])
