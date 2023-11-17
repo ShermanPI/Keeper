@@ -2,6 +2,7 @@ import React from 'react'
 import { CheckIcon, DeleteIcon, ImageIcon, InventoryIcon, PaperBin, PushPinIcon } from './assets/images/Icons'
 import { useNoteForm } from './hooks/useNoteForm'
 import { ChangeColorCard } from './components/ChangeColorCard'
+import TagManager from './components/TagManager'
 
 export default function NoteForm ({ id, className, children, noteColor, title, noteBody, onSaveText = function noop () {}, onSaveImage = function noop () {}, attachments = [], deleteImage = function noop () {} }) {
   const {
@@ -66,6 +67,8 @@ export default function NoteForm ({ id, className, children, noteColor, title, n
             <ImageIcon />
             <input type='file' name='' onChange={handleSaveImage} />
           </div>
+
+          <TagManager />
 
           <div className='note-action-button'>
             <InventoryIcon />

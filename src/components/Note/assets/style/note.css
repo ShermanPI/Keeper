@@ -133,7 +133,9 @@
   align-items: center;
   position: relative;
   transition: all 0.2s ease;
-
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .note-action-button > input[type="file"]{
@@ -439,4 +441,18 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   height: 1.6rem;
   top: -0.6rem;
   right: -0.6rem;
+}
+
+.tags-btn{
+  position: relative;
+}
+
+.card-tags-container{
+  position: absolute;
+  background-color: red;
+  bottom: calc(100% + 0.4rem);
+}
+
+.hidden-note-tags{
+  display: none;
 }
