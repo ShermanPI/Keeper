@@ -24,7 +24,6 @@ export function ChangeColorCard ({ handleChangeColor, noteColor }) {
   ]
 
   const handleColorClick = ({ noteColor }) => {
-    console.log('JAHSBVDKJHAGSBVDK🚀🚀🚀🚀', noteColor)
     handleChangeColor({ noteColor })
   }
 
