@@ -9,7 +9,7 @@
   background-color: #202124;
   break-inside: avoid;
   cursor: auto;
-  max-height: 50vh;
+  max-height: 70vh;
 }
 
 .close-note-btn{
@@ -212,7 +212,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   }
 
   .note-buttons-container svg{
-    fill: #979899;
+    fill: #fff;
     width: 1.8rem;
   }
 }
@@ -331,6 +331,11 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   row-gap: 0.1rem;
 }
 
+.amplified-note .images-container{
+  gap: 0.4rem;
+  row-gap: 0.2rem;
+}
+
 .note-image{
   display: flex;
   width: 0;
@@ -410,12 +415,28 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 .note-item-color{
   list-style: none;
-  height: 3.2rem;
-  width: 3.2rem;
+  height: 3rem;
+  width: 3rem;
   border-radius: 100%;
   border: 0.2rem solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem;
+  position: relative;
 }
 
 .note-item-color:hover{
   border: 0.2rem solid #fff;
+}
+
+.color-selected-check{
+  background-color: #a142f4;
+  border-radius: 100%;
+  display: flex;
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: -0.6rem;
+  right: -0.6rem;
 }

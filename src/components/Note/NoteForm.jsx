@@ -21,7 +21,7 @@ export default function NoteForm ({ id, className, children, noteColor, title, n
 
   return (
     <>
-      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick} style={{ backgroundColor: colorState }}>
+      <div className={`note ${amplified ? 'amplified-note' : ''} ${className}`} onClick={handleNoteClick} style={{ backgroundColor: colorState, borderColor: colorState !== '#202124' && colorState }}>
         <div className='note-top-icons'>
           <div className='select-note-icon'>
             <CheckIcon />
