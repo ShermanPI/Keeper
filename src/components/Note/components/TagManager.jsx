@@ -5,14 +5,24 @@ export default function TagManager () {
   const { toggleState: isActive, toggle: toggleIsActive } = useToggle({ initialValue: false })
 
   return (
-    <button className='note-action-button tags-btn'>
-      <div className='card-tags-container' onClick={toggleIsActive}>
+    <>
+      <div className={`card-tags-container ${!isActive && 'hidden-note-tag'}`} onClick={(e) => e.stopPropagation()}>
+        <h3>Label Note</h3>
+
+        <input type='text' className='search-label-input' placeholder='Search for a label' />
+
         <ul className='note-tag-list'>
-          <li className='tag-list-item'> option 1 </li>
-          <li> option 2 </li>
+          <li>
+            <label><input type='checkbox' name='checkbox' value='value' />oscion</label>
+          </li>
+          <li>
+            <label><input type='checkbox' name='checkbox' value='value' />Opcion</label>
+          </li>
         </ul>
       </div>
-      <TagIcon />
-    </button>
+      <button className='note-action-button tags-btn' onClick={toggleIsActive}>
+        <TagIcon />
+      </button>
+    </>
   )
 }
