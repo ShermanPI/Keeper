@@ -1,0 +1,104 @@
+.card-tags-container {
+    position: fixed;
+    background-color: #313235;
+    width: 22.5rem;
+    padding-top: 1rem;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.40);
+    border-radius: 0.2rem;
+    z-index: 999;
+    color: #fff;
+}
+
+.ampliable-note .card-tags-container {
+    display: none;
+}
+
+.amplified-note .card-tags-container {
+    display: block;
+}
+
+.card-tags-container h3 {
+    font-size: 1.4rem;
+    padding-inline: 1rem;
+    padding-bottom: 0.2rem;
+    font-weight: 300;
+}
+
+.search-tag-container {
+    margin-block: 0.6rem;
+    display: flex;
+    margin-inline: auto;
+    width: calc(100% - 2.2rem);
+    gap: 0.4rem;
+}
+
+.search-tag-container svg{
+    width: 1.6rem;
+}
+
+.search-label-input {
+    font-size: 1.3rem;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 300;
+    width: 100%;
+}
+
+.search-label-input:focus {
+    outline: none;
+}
+
+
+.note-tag-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0.6rem;
+}
+
+
+.note-tag-list li {
+    font-size: 1.4rem;
+    list-style: none;
+}
+
+.note-tag-list li input[type="checkbox"] {
+    margin-right: 0.6rem;
+    appearance: auto;
+    cursor: pointer;
+}
+
+.note-tag-list li label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    width: 100%;
+}
+
+.note-tag-list li:hover {
+    background-color: #ffffff09;
+}
+
+.add-label-btn {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .add-label-btn:hover {
+    background-color: #ffffff09;
+  }
+  
+  .add-label-btn svg {
+    width: 1.8rem;
+    fill: var(--placeholder-color);
+  }

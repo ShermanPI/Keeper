@@ -12,7 +12,7 @@
   max-height: 70vh;
 }
 
-.close-note-btn{
+.close-note-btn {
   cursor: pointer;
   background-color: transparent;
   margin-left: auto;
@@ -24,51 +24,51 @@
   font-weight: 500;
 }
 
-.close-note-btn:hover{
+.close-note-btn:hover {
   background-color: #ffffff15;
 }
 
-.ampliable-note .close-note-btn{
+.ampliable-note .close-note-btn {
   display: none;
 }
 
-.ampliable-note .delete-img-btn{
+.ampliable-note .delete-img-btn {
   display: none;
 }
 
-.amplified-note .close-note-btn{
+.amplified-note .close-note-btn {
   display: block;
 }
 
-.amplified-note .delete-img-btn{
+.amplified-note .delete-img-btn {
   display: block;
 }
 
-.note p{
+.note p {
   cursor: default;
 }
 
-.note input[type="text"]{
+.note input[type="text"] {
   cursor: default;
 }
 
 
-.amplified-note > .note-body-contaier::-webkit-scrollbar{
+.amplified-note>.note-body-contaier::-webkit-scrollbar {
   width: 1rem;
   position: absolute;
   padding: 10rem;
 }
 
-.amplified-note > .note-body-contaier::-webkit-scrollbar:hover{
+.amplified-note>.note-body-contaier::-webkit-scrollbar:hover {
   background-color: rgba(255, 255, 255, 0.103);
 }
 
-.amplified-note > .note-body-contaier::-webkit-scrollbar-thumb{
+.amplified-note>.note-body-contaier::-webkit-scrollbar-thumb {
   background-color: #afafb0;
   cursor: pointer;
 }
 
-.ampliable-note{
+.ampliable-note {
   border: 1px solid var(--border-color);
   width: calc(100% + 2px);
   height: calc(100% + 2px);
@@ -83,46 +83,46 @@
 }
 
 .ampliable-note:hover {
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
 }
 
-.amplified-note{
+.amplified-note {
   z-index: 3;
   width: 100%;
   height: auto;
   max-width: 60rem;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.75);
   max-height: 90vh;
-  /* overflow: hidden; */
-  
+  overflow: hidden;
+
   /*withouth the note animation*/
-  top: 50%;  
-  left: 50%; 
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
 }
 
-.amplified-note input[type="text"]{
+.amplified-note input[type="text"] {
   cursor: text;
 }
 
-.amplified-note p{
+.amplified-note p {
   cursor: text;
-  
+
 }
 
-.amplified-note .note-buttons-container{
+.amplified-note .note-buttons-container {
   padding-inline: 1.6rem;
 }
 
-.note-buttons-container{
+.note-buttons-container {
   display: none;
   margin-left: -1rem;
   padding-inline: 1.4rem;
   padding-block: 0.6rem;
 }
 
-.note-action-button{
+.note-action-button {
   border-radius: 5rem;
   min-width: 3.6rem;
   height: 3.6rem;
@@ -137,7 +137,7 @@
   cursor: pointer;
 }
 
-.note-action-button > input[type="file"]{
+.note-action-button>input[type="file"] {
   position: absolute;
   left: 0;
   width: 100%;
@@ -145,16 +145,18 @@
   opacity: 0;
 }
 
-input[type=file], /* FF, IE7+, chrome (except button) */
-input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
-    cursor: pointer; 
+input[type=file],
+/* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button {
+  /* chromes and blink button */
+  cursor: pointer;
 }
 
-.note-action-button:hover{
+.note-action-button:hover {
   background-color: #ffffff1d;
 }
 
-.select-note-icon{
+.select-note-icon {
   width: 2rem;
   height: 2rem;
   background-color: #fff;
@@ -168,7 +170,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   position: relative;
 }
 
-.file-note-icon{
+.file-note-icon {
   width: 3rem;
   height: 3rem;
   /* position: relative; */
@@ -183,81 +185,82 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   z-index: 1;
 }
 
-.file-note-icon:hover{
+.file-note-icon:hover {
   background-color: #ffffff17;
 }
 
 @media only screen and (max-width: 600px) {
-  .note{
+  .note {
     padding: 1.2rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  
-  .note-buttons-container{
+
+  .note-buttons-container {
     display: flex;
     opacity: 0;
   }
-  
-  .ampliable-note:hover .note-buttons-container{
+
+  .ampliable-note:hover .note-buttons-container {
     opacity: 1;
   }
 
-  .ampliable-note:hover .file-note-icon{
-    opacity: 1;
-  }
-  
-  .ampliable-note:hover .select-note-icon{
+  .ampliable-note:hover .file-note-icon {
     opacity: 1;
   }
 
-  .note-buttons-container svg{
+  .ampliable-note:hover .select-note-icon {
+    opacity: 1;
+  }
+
+  .note-buttons-container svg {
     fill: #fff;
     width: 1.8rem;
   }
 }
 
-.note.amplified-note .file-note-icon{
+.note.amplified-note .file-note-icon {
   margin-left: auto;
   top: 1rem;
   right: 1rem;
   opacity: 1;
 }
 
-.note.amplified-note b{
+.note.amplified-note b {
   font-size: 2rem;
 }
 
-.note.amplified-note .select-note-icon{
+.note.amplified-note .select-note-icon {
   pointer-events: none;
 }
 
-.note.amplified-note .note-buttons-container{
+.note.amplified-note .note-buttons-container {
   opacity: 1;
 }
 
-  
-.note.amplified-note .select-note-icon{
+
+.note.amplified-note .select-note-icon {
   display: none;
 }
 
-.note-body-contaier{
+.note-body-contaier {
   overflow: hidden;
 }
 
-.note-text{
+.note-text {
   margin-top: 1rem;
   font-size: 1.6rem;
   position: relative;
   margin-inline: 1.6rem;
 }
 
-.amplified-note .note-text{
-  padding-right: 1rem;  
+.amplified-note .note-text {
+  padding-right: 1rem;
 }
 
-.note-text-placeholder, .note-text-placeholder {
+.note-text-placeholder,
+.note-text-placeholder {
   color: #ffffff74;
   position: absolute;
   left: 0;
@@ -266,26 +269,26 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 
-.amplified-note .note-body-contaier{
+.amplified-note .note-body-contaier {
   overflow-y: auto;
 }
 
-.note-text p:focus{
+.note-text p:focus {
   outline: none;
 }
 
-.invisible-note{
+.invisible-note {
   color: transparent;
   position: relative;
 }
 
 
-.invisible-note > .note-body-contaier > .images-container{
+.invisible-note>.note-body-contaier>.images-container {
   opacity: 0;
 }
 
 
-.amplified-note-background{
+.amplified-note-background {
   z-index: 2;
   top: 0;
   left: 0;
@@ -295,13 +298,13 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   height: 100vh;
 }
 
-.note-top-icons{
+.note-top-icons {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.note-title{
+.note-title {
   background-color: transparent;
   color: #fff;
   border: none;
@@ -311,15 +314,15 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   margin-bottom: 0rem;
 }
 
-.note-title:focus{
+.note-title:focus {
   outline: none;
 }
 
-.invisible-note > .note-body-contaier > .note-text >.note-text-placeholder{
+.invisible-note>.note-body-contaier>.note-text>.note-text-placeholder {
   color: transparent;
 }
 
-.invisible-note > .note-body-contaier > input{
+.invisible-note>.note-body-contaier>input {
   color: transparent;
   background-color: transparent;
   border-color: transparent;
@@ -332,22 +335,22 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   row-gap: 0.1rem;
 }
 
-.amplified-note .images-container{
+.amplified-note .images-container {
   gap: 0.4rem;
   row-gap: 0.2rem;
 }
 
-.note-image{
+.note-image {
   display: flex;
   width: 0;
   position: relative;
 }
 
-.break{
+.break {
   flex-basis: 100%;
 }
 
-.delete-img-btn{
+.delete-img-btn {
   position: absolute;
   width: 2.8rem;
   height: 2.8rem;
@@ -362,59 +365,59 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   opacity: 0;
 }
 
-.delete-img-btn svg{
+.delete-img-btn svg {
   fill: rgba(255, 255, 255, 0.721);
   transition: all 400ms ease;
 
 }
 
-.delete-img-btn:hover{
+.delete-img-btn:hover {
   background-color: #000000;
 }
 
-.delete-img-btn:hover svg{
+.delete-img-btn:hover svg {
   fill: #fff;
 }
 
-.note-image:hover .delete-img-btn{
+.note-image:hover .delete-img-btn {
   opacity: 1;
 }
 
-.change-color-btn{
+.change-color-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: relative;
 }
 
-.card-colors-container{
+.card-colors-container {
   position: absolute;
   background-color: #202124;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.50);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.50);
   bottom: calc(100% + 0.4rem);
   left: 0.2rem;
   padding: 0.6rem 1rem 0.4rem 1rem;
   border-radius: 0.5rem;
 }
 
-.ampliable-note .card-colors-container{
+.ampliable-note .card-colors-container {
   display: none;
 }
 
-.amplified-note .card-colors-container{
+.amplified-note .card-colors-container {
   display: block;
 }
 
-.amplified-note .hidden-note-color{
+.amplified-note .hidden-note-color {
   display: none;
 }
 
-.note-colors{
+.note-colors {
   display: flex;
   gap: 0.6rem;
 }
 
-.note-item-color{
+.note-item-color {
   list-style: none;
   height: 3rem;
   width: 3rem;
@@ -427,11 +430,11 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   position: relative;
 }
 
-.note-item-color:hover{
+.note-item-color:hover {
   border: 0.2rem solid #fff;
 }
 
-.color-selected-check{
+.color-selected-check {
   background-color: #a142f4;
   border-radius: 100%;
   display: flex;
@@ -442,98 +445,6 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   right: -0.6rem;
 }
 
-.tags-btn{
-  position: relative;
-}
-
-.card-tags-container{
-  position: absolute;
-  background-color: #313235;
-  bottom: 4.8rem;
-  left: 10%;
-  width: 22.5rem;
-  padding-top: 1rem;
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.40);
-  border-radius: 0.2rem;
-}
-
-.ampliable-note .card-tags-container{
+.amplified-note .hidden-note-tag {
   display: none;
-}
-
-.amplified-note .card-tags-container{
-  display: block;
-}
-
-.amplified-note .hidden-note-tag{
-  display: none;
-}
-
-.note-tag-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 0.6rem;
-}
-
-.card-tags-container h3{
-  font-size: 1.4rem;
-  padding-inline: 1rem;
-  padding-bottom: 0.2rem;
-  font-weight: 300;
-}
-
-.note-tag-list li{
-  font-size: 1.4rem;
-  list-style: none;
-}
-
-.note-tag-list li input[type="checkbox"]{
-  margin-right: 0.6rem;
-  appearance: auto;
-  cursor: pointer;
-  accent-color: red;
-}
-
-.note-tag-list li label{
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0.8rem 1rem; 
-  width: 100%;
-}
-
-.note-tag-list li:hover{
-  background-color: #ffffff09;
-}
-
-.search-label-input{
-  font-size: 1.3rem;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-weight: 300;
-  width: 100%;
-}
-
-.search-label-input:focus{
-  outline: none;
-}
-
-.search-tag-container{
-  margin-block: 0.6rem;
-  display: flex;
-  margin-inline: auto;
-  width: calc(100% - 1.8rem);
-}
-
-.create-tag-label{
-  background-color: red;
-  width: 100%;
-  height: 70px;
-}
-
-.add-label{
-  width: 100%;
-  border-top: 1px solid #fff;
 }

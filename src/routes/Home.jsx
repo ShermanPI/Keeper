@@ -9,6 +9,7 @@ import NewNote from '../components/NewNote/NewNote'
 import { useNotes } from '../hooks/useNotes'
 import { Loader } from '../assets/images/loader/Loader'
 import { useToggle } from '../hooks/useToggle'
+import TagManager from '../components/TagManager/TagManager.jsx'
 
 export default function Home () {
   const { noteList, addNewNote } = useNotes()
@@ -19,6 +20,7 @@ export default function Home () {
   return (
     <div className='home-container'>
       <Loader />
+      <TagManager />
       <div className={`new-note-container ${addNoteHidden ? 'hidden' : ''}`} onClick={toggleAddNoteHidden}>
         <NewNote closeHandler={toggleAddNoteHidden} addNote={addNewNote} />
       </div>
