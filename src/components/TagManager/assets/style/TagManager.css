@@ -1,12 +1,21 @@
+.tags-btn {
+    position: relative;
+    text-align: left;
+}
+
 .card-tags-container {
     position: fixed;
-    background-color: #313235;
+    background-color: #202124;
     width: 22.5rem;
     padding-top: 1rem;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.40);
     border-radius: 0.2rem;
     z-index: 999;
     color: #fff;
+    position: absolute;
+    bottom: 4.6rem;
+    left: 10rem;
+    font-size: 1.3rem;
 }
 
 .ampliable-note .card-tags-container {
@@ -18,7 +27,6 @@
 }
 
 .card-tags-container h3 {
-    font-size: 1.4rem;
     padding-inline: 1rem;
     padding-bottom: 0.2rem;
     font-weight: 300;
@@ -32,12 +40,11 @@
     gap: 0.4rem;
 }
 
-.search-tag-container svg{
+.search-tag-container svg {
     width: 1.6rem;
 }
 
 .search-label-input {
-    font-size: 1.3rem;
     background-color: transparent;
     border: none;
     color: #fff;
@@ -59,7 +66,6 @@
 
 
 .note-tag-list li {
-    font-size: 1.4rem;
     list-style: none;
 }
 
@@ -92,13 +98,27 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-  }
-  
-  .add-label-btn:hover {
+    text-align: left;
+    word-break: break-all;
+    font-size: 1.3rem;
+}
+
+.add-label-btn p {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+
+.add-label-btn:hover {
     background-color: #ffffff09;
-  }
-  
-  .add-label-btn svg {
+}
+
+.add-label-btn svg {
+    min-width: 1.8rem;
     width: 1.8rem;
     fill: var(--placeholder-color);
-  }
+}
+
+.amplified-note .hidden-note-tag {
+    display: none;
+}

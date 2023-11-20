@@ -227,10 +227,6 @@ input[type=file]::-webkit-file-upload-button {
   opacity: 1;
 }
 
-.note.amplified-note b {
-  font-size: 2rem;
-}
-
 .note.amplified-note .select-note-icon {
   pointer-events: none;
 }
@@ -443,8 +439,4 @@ input[type=file]::-webkit-file-upload-button {
   height: 1.6rem;
   top: -0.6rem;
   right: -0.6rem;
-}
-
-.amplified-note .hidden-note-tag {
-  display: none;
 }
