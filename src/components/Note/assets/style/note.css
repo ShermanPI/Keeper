@@ -454,6 +454,7 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   width: 22.5rem;
   padding-top: 1rem;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.40);
+  border-radius: 0.2rem;
 }
 
 .ampliable-note .card-tags-container{
@@ -476,10 +477,10 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 }
 
 .card-tags-container h3{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   padding-inline: 1rem;
   padding-bottom: 0.2rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .note-tag-list li{
@@ -489,6 +490,9 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
 
 .note-tag-list li input[type="checkbox"]{
   margin-right: 0.6rem;
+  appearance: auto;
+  cursor: pointer;
+  accent-color: red;
 }
 
 .note-tag-list li label{
@@ -497,25 +501,39 @@ input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
   align-items: center;
   padding: 0.8rem 1rem; 
   width: 100%;
-
 }
 
 .note-tag-list li:hover{
-  background-color: #ffffff3b;
+  background-color: #ffffff09;
 }
 
 .search-label-input{
-  display: block;
-  width: calc(100% - 1.6rem);
-  margin-block: 1rem;
-  margin-inline: auto;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   background-color: transparent;
   border: none;
   color: #fff;
   font-weight: 300;
+  width: 100%;
 }
 
 .search-label-input:focus{
   outline: none;
+}
+
+.search-tag-container{
+  margin-block: 0.6rem;
+  display: flex;
+  margin-inline: auto;
+  width: calc(100% - 1.8rem);
+}
+
+.create-tag-label{
+  background-color: red;
+  width: 100%;
+  height: 70px;
+}
+
+.add-label{
+  width: 100%;
+  border-top: 1px solid #fff;
 }

@@ -1,4 +1,4 @@
-import { TagIcon } from '../assets/images/Icons'
+import { MagnifyingGlasses, TagIcon } from '../assets/images/Icons'
 import { useToggle } from '../../../hooks/useToggle'
 
 export default function TagManager () {
@@ -8,8 +8,10 @@ export default function TagManager () {
     <>
       <div className={`card-tags-container ${!isActive && 'hidden-note-tag'}`} onClick={(e) => e.stopPropagation()}>
         <h3>Label Note</h3>
-
-        <input type='text' className='search-label-input' placeholder='Search for a label' />
+        <label className='search-tag-container'>
+          <input type='text' className='search-label-input' placeholder='Search for a label' />
+          <MagnifyingGlasses />
+        </label>
 
         <ul className='note-tag-list'>
           <li>
@@ -19,6 +21,10 @@ export default function TagManager () {
             <label><input type='checkbox' name='checkbox' value='value' />Opcion</label>
           </li>
         </ul>
+
+        <button>
+          Add Label "New"
+        </button>
       </div>
       <button className='note-action-button tags-btn' onClick={toggleIsActive}>
         <TagIcon />
