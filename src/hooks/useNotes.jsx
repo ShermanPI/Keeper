@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useMemo } from 'react'
-import { getNotes } from '../services/getNotes'
-import createNewNote from '../services/createNewNote'
+import { getNotes } from '../services/note/getNotes'
+import createNewNote from '../services/note/createNewNote'
 import { session } from '../context/contextLogin'
 import Note from '../components/Note/Note'
 

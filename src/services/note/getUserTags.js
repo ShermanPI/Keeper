@@ -1,4 +1,4 @@
-import { supabase } from './clients/supabaseClient'
+import { supabase } from '../clients/supabaseClient'
 
 export default async function getUserTags ({ userId }) {
   try {

@@ -1,7 +1,7 @@
 import { useRef, useState, useContext } from 'react'
 import { AddIcon, MagnifyingGlasses } from '../Note/assets/images/Icons'
 import './assets/style/TagManager.css'
-import createNewNoteTag from '../../services/createNewNoteTag'
+import createNewNoteTag from '../../services/note/createNewNoteTag'
 import { session } from '../../context/contextLogin'
 import { tagContext } from '../../context/tagContext'
 
@@ -37,7 +37,7 @@ export default function TagManager ({ isVisible }) {
         {tags.map((el) => {
           return (
             <li key={el.id}>
-              <label><input type='checkbox' name='checkbox' value='value' />{el.name}</label>
+              <label><input type='checkbox' name='checkbox' value='value' defaultChecked />{el.name}</label>
             </li>
           )
         })}

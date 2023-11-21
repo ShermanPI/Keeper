@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { useToggle } from '../../../hooks/useToggle'
 import { usePlaceholder } from '../../../hooks/usePlaceholder'
-import { updateNoteColor } from '../../../services/updateNoteColor'
+import { updateNoteColor } from '../../../services/note/updateNoteColor'
 
 export function useNoteForm ({ className, onSaveText, onSaveImage, deleteImage, noteColorInitialValue, id }) {
   const isFirstRenderRef = useRef(true)

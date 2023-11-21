@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from 'react'
 import { session } from './contextLogin'
-import getUserTags from '../services/getUserTags'
+import getUserTags from '../services/note/getUserTags'
 
 const tagContext = createContext([])
 

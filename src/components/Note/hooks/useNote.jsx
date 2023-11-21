@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from 'react'
-import { getNoteAttachments } from '../../../services/getNoteAttachments'
-import updateNoteText from '../../../services/updateNoteText'
-import { deleteNoteAttachment } from '../../../services/deleteNoteAttachment'
-import uploadNoteImage from '../../../services/uploadNoteImage'
+import { getNoteAttachments } from '../../../services/note/getNoteAttachments'
+import updateNoteText from '../../../services/note/updateNoteText'
+import { deleteNoteAttachment } from '../../../services/note/deleteNoteAttachment'
+import uploadNoteImage from '../../../services/note/uploadNoteImage'
 
 export default function useNote ({ children, title, id }) {
   const [textContent, setNoteText] = useState({ title, text: children })

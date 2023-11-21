@@ -1,4 +1,4 @@
-import { supabase } from './clients/supabaseClient'
+import { supabase } from '../clients/supabaseClient'
 
 export async function deleteNoteAttachment ({ imageName, attachmentId }) {
   try {

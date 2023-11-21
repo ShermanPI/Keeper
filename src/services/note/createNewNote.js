@@ -1,4 +1,4 @@
-import { supabase } from './clients/supabaseClient'
+import { supabase } from '../clients/supabaseClient'
 
 export default async function createNewNote ({ title, text, backgroundColor = '#202124', userId }) {
   try {

@@ -1,4 +1,4 @@
-import { supabase, supabasePublicBucketUrl as bucketUrl } from './clients/supabaseClient'
+import { supabase, supabasePublicBucketUrl as bucketUrl } from '../clients/supabaseClient'
 
 export async function getNoteAttachments ({ noteId }) {
   try {

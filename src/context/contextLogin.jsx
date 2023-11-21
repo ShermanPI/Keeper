@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { supabase } from '../services/clients/supabaseClient'
 import { useNavigate } from 'react-router-dom'
-import { getLoggedUser } from '../services/getLoggedUSer'
+import { getLoggedUser } from '../services/user/getLoggedUser'
 
 const session = createContext()
 
