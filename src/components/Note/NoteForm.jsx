@@ -68,7 +68,7 @@ export default function NoteForm ({ id, className, children, noteColor, title, n
             <input type='file' name='' onChange={handleSaveImage} />
           </div>
 
-          <TagNoteButtonCard />
+          <TagNoteButtonCard noteId={id} />
 
           <div className='note-action-button' onClick={(e) => e.stopPropagation()}>
             <InventoryIcon />

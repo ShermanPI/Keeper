@@ -108,6 +108,10 @@
     cursor: pointer;
 }
 
+.add-label-btn b {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
 
 .add-label-btn:hover {
     background-color: #ffffff09;

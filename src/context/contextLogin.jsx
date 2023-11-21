@@ -22,6 +22,16 @@ const ContextSession = ({ children }) => {
     })
   }, [])
 
+  // In case the user is not on public.user
+  useEffect(() => {
+    (async () => {
+      if (loggedUser) {
+        const user = loggedUser.user_metadata
+        await supabase.from('user').upsert({ id: loggedUser.id, email: user.email, full_name: user.full_name }).select()
+      }
+    })()
+  }, [loggedUser])
+
   const createSession = async (email, password, fullName) => {
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -42,16 +52,11 @@ const ContextSession = ({ children }) => {
 
   const sigInGoogle = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google'
       })
 
       if (error) { console.error(error) }
-
-      if (data && !error) {
-        // Llamar a la función addUser con los datos del usuario
-        await addUser(data.user.email, data.user.name, data.user.id)
-      }
     } catch (error) {
       console.error('Error al registrar el usuario:', error.message)
     }
