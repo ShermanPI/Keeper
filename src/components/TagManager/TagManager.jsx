@@ -4,7 +4,7 @@ import './assets/style/TagManager.css'
 import createNewNoteTag from '../../services/createNewNoteTag'
 import { session } from '../../context/contextLogin'
 
-export default function TagManager ({ isVisible, noteId }) {
+export default function TagManager ({ isVisible }) {
   const tagInputRef = useRef()
   const [query, setQuery] = useState('')
   const { loggedUser } = useContext(session)
@@ -16,14 +16,17 @@ export default function TagManager ({ isVisible, noteId }) {
   }
 
   const handleCreateNote = async () => {
-    createNewNoteTag({ userId: loggedUser.id, name: query })
+    if (query.length > 0) {
+      await createNewNoteTag({ userId: loggedUser.id, name: query })
+      setQuery('')
+    }
   }
 
   return (
     <div className={`card-tags-container ${!isVisible && 'hidden-note-tag'}`} onClick={(e) => e.stopPropagation()}>
       <h3>Tag Note</h3>
       <label className='search-tag-container' ref={tagInputRef}>
-        <input type='text' className='search-label-input' placeholder='Search for a label' value={query} onChange={handleChange} />
+        <input type='text' className='search-label-input' placeholder='Enter label name' value={query} onChange={handleChange} />
         <MagnifyingGlasses />
       </label>
 

@@ -26,8 +26,7 @@ const ContextSession = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (loggedUser) {
-        const user = loggedUser.user_metadata
-        await supabase.from('user').upsert({ id: loggedUser.id, email: user.email, full_name: user.full_name }).select()
+        await supabase.from('user').upsert({ id: loggedUser.id, email: loggedUser.user_metadata.email, full_name: loggedUser.user_metadata.full_name })
       }
     })()
   }, [loggedUser])
