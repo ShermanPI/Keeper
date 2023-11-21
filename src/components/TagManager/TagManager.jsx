@@ -3,11 +3,13 @@ import { AddIcon, MagnifyingGlasses } from '../Note/assets/images/Icons'
 import './assets/style/TagManager.css'
 import createNewNoteTag from '../../services/createNewNoteTag'
 import { session } from '../../context/contextLogin'
+import { tagContext } from '../../context/tagContext'
 
 export default function TagManager ({ isVisible }) {
   const tagInputRef = useRef()
   const [query, setQuery] = useState('')
   const { loggedUser } = useContext(session)
+  const { tags, addTag } = useContext(tagContext)
 
   const handleChange = (e) => {
     if (e.target.value.length <= 50) {
@@ -16,8 +18,9 @@ export default function TagManager ({ isVisible }) {
   }
 
   const handleCreateNote = async () => {
-    if (query.length > 0) {
-      await createNewNoteTag({ userId: loggedUser.id, name: query })
+    if (query.length > 0 && !tags.find(({ name }) => name === query)) {
+      const newTag = await createNewNoteTag({ userId: loggedUser.id, name: query })
+      addTag({ newTag })
       setQuery('')
     }
   }
@@ -31,12 +34,13 @@ export default function TagManager ({ isVisible }) {
       </label>
 
       <ul className='note-tag-list'>
-        <li>
-          <label><input type='checkbox' name='checkbox' value='value' />oscion</label>
-        </li>
-        <li>
-          <label><input type='checkbox' name='checkbox' value='value' />Opcion</label>
-        </li>
+        {tags.map((el) => {
+          return (
+            <li key={el.id}>
+              <label><input type='checkbox' name='checkbox' value='value' />{el.name}</label>
+            </li>
+          )
+        })}
       </ul>
       <button className='add-label-btn' onClick={handleCreateNote}>
         <AddIcon />

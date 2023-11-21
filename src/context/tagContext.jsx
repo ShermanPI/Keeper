@@ -1,12 +1,25 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState, useContext } from 'react'
+import { session } from './contextLogin'
+import getUserTags from '../services/getUserTags'
 
 const tagContext = createContext([])
 
 function TagContextProvider ({ children }) {
   const [tags, setTags] = useState([])
-  const addTag = ({ newTagName }) => {
+  const { loggedUser } = useContext(session)
+
+  useEffect(() => {
+    (async () => {
+      if (loggedUser) {
+        const { tags } = await getUserTags({ userId: loggedUser.id })
+        setTags(tags)
+      }
+    })()
+  }, [loggedUser])
+
+  const addTag = ({ newTag }) => {
     const newTags = [...tags]
-    newTags.push(newTagName)
+    newTags.push(newTag)
     setTags(newTags)
   }
 
