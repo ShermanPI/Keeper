@@ -2,7 +2,7 @@ import '../assets/styles/pages/home.css'
 import Header from '../components/Header/Header'
 import NotesSection from '../components/NotesSection/NotesSection'
 import Note from '../components/Note/Note'
-import React, { useMemo } from 'react'
+import React from 'react'
 import { AddIcon } from '../assets/images/Icons.jsx'
 import SideMenu from '../components/SideMenu/SideMenu'
 import NewNote from '../components/NewNote/NewNote'
@@ -11,14 +11,10 @@ import { Loader } from '../assets/images/loader/Loader'
 import { useToggle } from '../hooks/useToggle'
 
 export default function Home () {
-  const { notes, addNewNote } = useNotes()
+  const { noteList, addNewNote } = useNotes()
   const { toggleState: addNoteHidden, toggle: toggleAddNoteHidden } = useToggle({ initialValue: true })
   const { toggleState: menuOpen, toggle: toggleMenuOpen } = useToggle({ initialValue: false })
   const { toggleState: oneColumnGrid, toggle: toggleOneColumnGrid } = useToggle({ initialValue: false })
-
-  const noteList = useMemo(() => notes.map((el) => {
-    return (<Note key={el.id} title={el.title} id={el.id}>{el.bodyText}</Note>)
-  }), [notes])
 
   return (
     <div className='home-container'>

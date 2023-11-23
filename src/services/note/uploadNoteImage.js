@@ -1,5 +1,5 @@
-import { supabase } from './clients/supabaseClient'
-import generateUuidv4 from '../utilities/generateUuidv4'
+import { supabase } from '../clients/supabaseClient'
+import generateUuidv4 from '../../utilities/generateUuidv4'
 
 export default async function uploadNoteImage ({ file, id, width, height }) {
   try {

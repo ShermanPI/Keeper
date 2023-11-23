@@ -1,4 +1,4 @@
-import { supabase } from './clients/supabaseClient'
+import { supabase } from '../clients/supabaseClient'
 
 export async function getNotes ({ userId }) {
   try {
@@ -12,7 +12,8 @@ export async function getNotes ({ userId }) {
         return {
           id: el.id,
           title: el.title,
-          bodyText: el.text
+          bodyText: el.text,
+          noteColor: el.background_color
         }
       })
     }

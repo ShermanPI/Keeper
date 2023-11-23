@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { supabase } from '../services/clients/supabaseClient'
 import { useNavigate } from 'react-router-dom'
-import { getLoggedUser } from '../services/getLoggedUSer'
+import { getLoggedUser } from '../services/user/getLoggedUser'
 
 const session = createContext()
 
@@ -21,6 +21,15 @@ const ContextSession = ({ children }) => {
       if (!session) { Navigate('/') }
     })
   }, [])
+
+  // In case the user is not on public.user
+  useEffect(() => {
+    (async () => {
+      if (loggedUser) {
+        await supabase.from('user').upsert({ id: loggedUser.id, email: loggedUser.user_metadata.email, full_name: loggedUser.user_metadata.full_name })
+      }
+    })()
+  }, [loggedUser])
 
   const createSession = async (email, password, fullName) => {
     try {
@@ -42,16 +51,11 @@ const ContextSession = ({ children }) => {
 
   const sigInGoogle = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google'
       })
 
       if (error) { console.error(error) }
-
-      if (data && !error) {
-        // Llamar a la función addUser con los datos del usuario
-        await addUser(data.user.email, data.user.name, data.user.id)
-      }
     } catch (error) {
       console.error('Error al registrar el usuario:', error.message)
     }
